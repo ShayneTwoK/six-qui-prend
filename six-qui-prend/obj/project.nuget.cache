@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Wmil+5OMir/6ngLuUKU704GASGRakQPYCItXtUVZ7RmMzpqkR13gXnh9IhOd3/gfe0Y2IP/pWyCHTuFwMGWqCg==",
+  "success": true,
+  "projectFilePath": "E:\\Users\\Shayne\\Documents\\Ynov\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Shayne\\.nuget\\packages\\materialdesigncolors\\2.0.4\\materialdesigncolors.2.0.4.nupkg.sha512",
+    "C:\\Users\\Shayne\\.nuget\\packages\\materialdesignthemes\\4.3.0\\materialdesignthemes.4.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}

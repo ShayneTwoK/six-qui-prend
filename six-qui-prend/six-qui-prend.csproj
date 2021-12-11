@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>six_qui_prend</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\icon-app.ico" />
+    <None Remove="images\textsixquiprend.png" />
+    <None Remove="images\wallpaper.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\icon-app.ico" />
+    <Resource Include="images\textsixquiprend.png" />
+    <Resource Include="images\wallpaper.png" />
+  </ItemGroup>
+
+</Project>
