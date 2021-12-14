@@ -25,19 +25,31 @@ namespace six_qui_prend
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_Create(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            GameRoom gm = new GameRoom();
+            gm.Show();
+
+        }
+
+        private void Button_Click_Join(object sender, RoutedEventArgs e)
+        {
+            /*
+            this.Hide();
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            */
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

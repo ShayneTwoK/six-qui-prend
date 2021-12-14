@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net6.0-windows\
+D:\Users\Shayne\Documents\YNOV\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net6.0-windows\
 six_qui_prend
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\App.xaml
-11407045341
+D:\Users\Shayne\Documents\YNOV\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\App.xaml
+21174179588
 
-5-1313066199
+61062743088
 196-1311401343
-MainWindow.xaml;
+GameRoom.xaml;MainWindow.xaml;
 
 True
 

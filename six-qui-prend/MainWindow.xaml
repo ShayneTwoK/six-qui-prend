@@ -6,35 +6,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:six_qui_prend"
         mc:Ignorable="d"
-        Title="Six Qui Prend !" Height="600" Width="1000"
+        Title="Six Qui Prend !"
+        Height="600" 
+        Width="1000"
         WindowStartupLocation="CenterScreen"
-        Icon="./images/icon-app.ico">
+        Icon="./images/icon-app.ico" MinWidth="1000" MinHeight="600" Closing="Window_Closing">
 
-    <Grid>
+    <Grid MinWidth="600" MinHeight="600">
         <Grid.Background>
             <ImageBrush ImageSource="/images/wallpaper.png"/>
         </Grid.Background>
 
-        <Button
+        <Button x:Name="btn_create"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
             materialDesign:ButtonAssist.CornerRadius="20"
             ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Height="32" VerticalAlignment="Top" Margin="179,425,0,0" Width="236" HorizontalAlignment="Left">
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="179,0,585,135" MaxHeight="32" MaxWidth="236" MinWidth="1"
+            Click="Button_Click_Create" Height="32" VerticalAlignment="Bottom">
             <TextBlock Text="CRÉER UNE SALLE" />
         </Button>
-        <Button
+
+        <Button x:Name="btn_join"
             materialDesign:ButtonAssist.CornerRadius="20"
             ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-            Margin="588,425,0,0"
-            Click="Button_Click_1"
-            Background="#FF77A131" BorderBrush="#FF2DA830" Width="236" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top">
+            Margin="588,0,176,135"
+            Click="Button_Click_Join"
+            Background="#FF77A131" BorderBrush="#FF2DA830" MaxWidth="236" MaxHeight="32" Cursor="Hand" MinWidth="1" Height="32" VerticalAlignment="Bottom">
             <TextBlock Text="REJOINDRE UNE SALLE" />
         </Button>
 
-        <TextBlock HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="144" FontStretch="Normal" TextAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="18"><Run Language="fr-fr" Text="Message Statut"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Margin="452,486,0,0" TextWrapping="Wrap" Text="Pseudo" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" FontSize="16"/>
-        <Image HorizontalAlignment="Center" Height="218" Margin="0,142,0,0" VerticalAlignment="Top" Width="579" Source="/images/textsixquiprend.png" RenderTransformOrigin="0.491,0.708">
+        <TextBox Margin="444,0,436,68" TextWrapping="Wrap" Text="Pseudo" TextChanged="TextBox_TextChanged" FontSize="16" MaxWidth="120" HorizontalContentAlignment="Left" MaxHeight="30.04" Height="46" VerticalAlignment="Bottom"/>
+
+        <Image Margin="166,108,162,235" Source="/images/textsixquiprend.png" RenderTransformOrigin="0.491,0.708" MaxWidth="671" MaxHeight="257">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -44,6 +48,8 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+        <TextBlock Margin="312,36,319,520" TextWrapping="Wrap" FontStretch="Normal" TextAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="18"><Run Text="Veuillez renseignez un pseudo "/><Run Language="fr-fr" Text="!"/></TextBlock>
+
 
     </Grid>
 

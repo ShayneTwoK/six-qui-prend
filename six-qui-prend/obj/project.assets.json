@@ -96,11 +96,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Users\\Shayne\\Documents\\Ynov\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
+      "projectUniqueName": "D:\\Users\\Shayne\\Documents\\YNOV\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
       "projectName": "six-qui-prend",
-      "projectPath": "E:\\Users\\Shayne\\Documents\\Ynov\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
+      "projectPath": "D:\\Users\\Shayne\\Documents\\YNOV\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
       "packagesPath": "C:\\Users\\Shayne\\.nuget\\packages\\",
-      "outputPath": "E:\\Users\\Shayne\\Documents\\Ynov\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\obj\\",
+      "outputPath": "D:\\Users\\Shayne\\Documents\\YNOV\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Shayne\\AppData\\Roaming\\NuGet\\NuGet.Config",
