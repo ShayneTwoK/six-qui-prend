@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {
+    "net5.0-windows7.0": {
       "MaterialDesignColors/2.0.4": {
         "type": "package",
         "compile": {
@@ -86,7 +86,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": [
+    "net5.0-windows7.0": [
       "MaterialDesignThemes >= 4.3.0"
     ]
   },
@@ -96,26 +96,26 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\Shayne\\Documents\\YNOV\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
+      "projectUniqueName": "E:\\Users\\Shayne\\Documents\\Ynov\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
       "projectName": "six-qui-prend",
-      "projectPath": "D:\\Users\\Shayne\\Documents\\YNOV\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
+      "projectPath": "E:\\Users\\Shayne\\Documents\\Ynov\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
       "packagesPath": "C:\\Users\\Shayne\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\Shayne\\Documents\\YNOV\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\obj\\",
+      "outputPath": "E:\\Users\\Shayne\\Documents\\Ynov\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Shayne\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows7.0"
+        "net5.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
           "projectReferences": {}
         }
       },
@@ -126,8 +126,8 @@
       }
     },
     "frameworks": {
-      "net6.0-windows7.0": {
-        "targetAlias": "net6.0-windows",
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
         "dependencies": {
           "MaterialDesignThemes": {
             "target": "Package",
@@ -144,6 +144,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.12, 5.0.12]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"

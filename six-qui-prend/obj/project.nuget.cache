@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "JEngIFiRYdBR669urYPfpiBpEpAgikVv+DQGf2ncRk+BYvqW1uJsMjtnZcjZzsa4eHfWqZu3wNEJDMHM/Krq5A==",
+  "dgSpecHash": "gCYN3BzK6s5bwMFZ30wRMjFNWNbRL9klwc7zfhjcFpcSfo1V/0IJJGc+JrCG1xps8PcXYt3X5Z4xjVxweJEnZw==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Shayne\\Documents\\YNOV\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
+  "projectFilePath": "E:\\Users\\Shayne\\Documents\\Ynov\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Shayne\\.nuget\\packages\\materialdesigncolors\\2.0.4\\materialdesigncolors.2.0.4.nupkg.sha512",
-    "C:\\Users\\Shayne\\.nuget\\packages\\materialdesignthemes\\4.3.0\\materialdesignthemes.4.3.0.nupkg.sha512"
+    "C:\\Users\\Shayne\\.nuget\\packages\\materialdesignthemes\\4.3.0\\materialdesignthemes.4.3.0.nupkg.sha512",
+    "C:\\Users\\Shayne\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512",
+    "C:\\Users\\Shayne\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Shayne\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Shayne\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }
