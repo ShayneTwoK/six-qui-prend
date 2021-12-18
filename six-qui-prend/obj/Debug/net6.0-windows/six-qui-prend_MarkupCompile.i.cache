@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\Users\Shayne\Documents\YNOV\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\App.xaml
-21174179588
+4-1849201983
 
-61062743088
+9-713525629
 196-1311401343
-GameRoom.xaml;MainWindow.xaml;
+GameRoom.xaml;MainWindow.xaml;Views\GameRoom.xaml;Views\ViewCardPlayer.xaml;
 
 True
 
