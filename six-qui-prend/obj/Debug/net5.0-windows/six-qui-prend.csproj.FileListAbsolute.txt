@@ -37,7 +37,6 @@ E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\b
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\bin\Debug\net5.0-windows\six-qui-prend.pdb
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\bin\Debug\net5.0-windows\MaterialDesignColors.dll
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\bin\Debug\net5.0-windows\MaterialDesignThemes.Wpf.dll
-E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.csproj.AssemblyReference.cache
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\MainWindow.g.cs
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\Views\GameRoom.g.cs
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\Views\ViewCardPlayer.g.cs
@@ -59,3 +58,4 @@ E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\o
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\ref\six-qui-prend.dll
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.pdb
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.genruntimeconfig.cache
+E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.csproj.AssemblyReference.cache

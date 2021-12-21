@@ -15,12 +15,12 @@
         Width="1000"
         MinWidth="1000" MinHeight="600" Closed="Window_Closed">
 
-    <Grid MinWidth="1000" MinHeight="600" Margin="0,0,0,-16">
+    <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/images/wallpaper.png"/>
         </Grid.Background>
 
-        <TextBlock Margin="312,36,319,520" TextWrapping="Wrap" FontStretch="Normal" TextAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="18"><Run Language="fr-fr" Text="Le Joueur 1 joue son tour"/></TextBlock>
+        <TextBlock Margin="312,36,319,0" TextWrapping="Wrap" FontStretch="Normal" TextAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="18" Height="28" VerticalAlignment="Top"><Run Language="fr-fr" Text="Le Joueur 1 joue son tour"/></TextBlock>
 
         <Button
               Style="{StaticResource MaterialDesignFloatingActionSecondaryDarkButton}"
@@ -31,9 +31,38 @@
               Kind="ArrowLeft" Height="39" Width="46" HorizontalAlignment="Center"
                />
         </Button>
-        <view:ViewCardPlayer Margin="140,340,139,29">
-            
-        </view:ViewCardPlayer>
+
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="104,423,0,0" Width="843">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <view:ViewCardPlayer Grid.Column="0" Grid.ColumnSpan="2"/>
+            <view:ViewCardPlayer Grid.Column="1" Grid.ColumnSpan="2"/>
+            <view:ViewCardPlayer Grid.Column="2" Grid.ColumnSpan="2"/>
+            <view:ViewCardPlayer Grid.Column="3" Grid.ColumnSpan="2"/>
+            <view:ViewCardPlayer Grid.Column="4" Grid.ColumnSpan="2"/>
+            <view:ViewCardPlayer Grid.Column="5" Grid.ColumnSpan="2"/>
+            <view:ViewCardPlayer Grid.Column="6" Grid.ColumnSpan="2"/>
+            <view:ViewCardPlayer Grid.Column="7" Grid.ColumnSpan="2"/>
+            <view:ViewCardPlayer Grid.Column="8" Grid.ColumnSpan="2"/>
+            <view:ViewCardPlayer Grid.Column="9" Grid.ColumnSpan="2"/>
+        </Grid>
+        
     </Grid>
 </Window>
  

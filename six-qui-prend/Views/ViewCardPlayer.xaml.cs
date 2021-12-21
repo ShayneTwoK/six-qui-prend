@@ -20,19 +20,16 @@ namespace six_qui_prend.View
     /// </summary>
     public partial class ViewCardPlayer : UserControl
     {
+        
         public ViewCardPlayer()
         {
             InitializeComponent();
+
+            Random randomNbr = new Random();
+            Brush brush = new SolidColorBrush(Color.FromRgb((byte)randomNbr.Next(1, 255), (byte)randomNbr.Next(1, 255), (byte)randomNbr.Next(1, 233)));
+
+            borderCard.Background = brush;
         }
 
-        public void displayPlayerCards()
-        {
-            List<Card> PlayerCards =   new List<Card> { new Card(1, 5) };
-
-            foreach (Card card in PlayerCards)
-            {
-                
-            }
-        }
     }
 }
