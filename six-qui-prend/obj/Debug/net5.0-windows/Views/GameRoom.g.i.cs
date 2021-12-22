@@ -57,7 +57,7 @@ namespace six_qui_prend {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/six-qui-prend;V1.0.0.0;component/views/gameroom.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/six-qui-prend;component/views/gameroom.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\GameRoom.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

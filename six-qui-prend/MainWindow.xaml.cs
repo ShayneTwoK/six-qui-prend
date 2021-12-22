@@ -1,4 +1,5 @@
-﻿using System;
+﻿using six_qui_prend.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,11 +26,6 @@ namespace six_qui_prend
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void Button_Click_Create(object sender, RoutedEventArgs e)
         {
             this.Hide();
@@ -45,6 +41,29 @@ namespace six_qui_prend
             MainWindow mw = new MainWindow();
             mw.Show();
             */
+            var s = ServerCommunication.OpenConnection("127.0.0.1", 3490);
+            if (s == null)
+                return;
+            Console.WriteLine("Connection to server opened successfully !");
+
+            string buffer;// Envoi du buffer au serveur
+            ServerCommunication.Send(s, "DATE");
+
+            // Lecture de la réponse du serveur
+            buffer = ServerCommunication.Receive(s);
+
+            // Traitement du résultat lu sur la socket
+            if (buffer == "CONNECTION_CLOSED")
+            {
+                Console.WriteLine("Server has closed connection !");
+            }
+            else
+            {
+                // Affichage du message
+                Console.WriteLine(buffer);
+            }
+
+            ServerCommunication.CloseConnection(s);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

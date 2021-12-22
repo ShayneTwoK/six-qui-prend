@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace six_qui_prend
 {
+
     public class Card
     {
-        public int id { get; set; }
+        public int Value { get; set; }
+        public int NbBeefHeads { get; set; }
 
-        public int nbrBeefHeads { get; set; }
-
-        public Card(int id, int nbrBeefHeads)
+        public Card(int value, int nbBeefHeads)
         {
-            this.id = id;
-            this.nbrBeefHeads = nbrBeefHeads;
+            this.Value = value;
+            this.NbBeefHeads = nbBeefHeads;
         }
     }
 }

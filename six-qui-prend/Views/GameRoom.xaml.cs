@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +24,30 @@ namespace six_qui_prend
         public GameRoom()
         {
             InitializeComponent();
+
+            Socket s;
+
+            IPAddress ip = IPAddress.Parse("127.0.0.1");
+            int port = 3490;
+            IPEndPoint remoteEP = new IPEndPoint(ip, port);
+
+            s = new Socket(AddressFamily.InterNetwork,
+                SocketType.Stream, ProtocolType.Tcp);
+
+            try
+            {
+                s.Connect(remoteEP);
+                System.Threading.Thread.Sleep(2000);
+                byte[] byData = System.Text.Encoding.ASCII.GetBytes("CONNECT");
+                s.Send(byData);
+                System.Threading.Thread.Sleep(2000);
+                s.Close();
+            }
+            catch (Exception e1)
+            {
+                System.Threading.Thread.Sleep(2000);
+                Console.Write("Error : " + e1);
+            }
         }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
