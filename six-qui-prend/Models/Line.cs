@@ -15,13 +15,13 @@ namespace six_qui_prend.Models
         {
             List<Card> tmp = new List<Card> { startingCard };
             this.Cards = tmp;
-            this.LineNbBeefHeads = startingCard.NbBeefHeads;
+            this.LineNbBeefHeads = startingCard.nbBeefHead;
         }
 
         public void addPlayerCard(Card playerCard)
         {
             this.Cards.Add(playerCard);
-            this.LineNbBeefHeads += playerCard.NbBeefHeads;
+            this.LineNbBeefHeads += playerCard.nbBeefHead;
         }
     }
 }

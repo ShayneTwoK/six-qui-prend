@@ -33,7 +33,7 @@ namespace six_qui_prend.Models
         public async Task PlayCard()
         {
             //envoi de la carte choisie au serveur
-            await ServerCommunication.BeginSendAsync(this.socket, $"PLAY_CARD [{Hand.Value}, {Hand.NbBeefHeads}]");
+            await ServerCommunication.BeginSendAsync(this.socket, $"PLAY_CARD [{Hand.idCard}, {Hand.nbBeefHead}]");
 
             //récupération du résultat du tour (récupération d'une colonne de carte ou non)
             string result = await ServerCommunication.BeginReceiveAsync(this.socket);

@@ -1,8 +1,11 @@
-﻿using six_qui_prend.Models;
+﻿using Newtonsoft.Json;
+using six_qui_prend.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,9 +24,12 @@ namespace six_qui_prend
     /// </summary>
     public partial class MainWindow : Window
     {
+        Card card = new Card();
+
         public MainWindow()
         {
             InitializeComponent();
+            Trace.WriteLine(card.jsonSerializeCards());
         }
 
         private void Button_Click_Create(object sender, RoutedEventArgs e)
