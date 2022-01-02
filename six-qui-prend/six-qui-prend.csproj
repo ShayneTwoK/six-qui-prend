@@ -25,4 +25,8 @@
     <Resource Include="images\wallpaper.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+
 </Project>

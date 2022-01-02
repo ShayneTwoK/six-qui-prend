@@ -5,11 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace six_qui_prend
+namespace six_qui_prend.Models
 {
 
-    public class Card
+    public class Card 
     {
+
         public int idCard { get; set; }
         public int nbBeefHead { get; set; }
 
@@ -31,22 +32,18 @@ namespace six_qui_prend
 
             if (idCard % 5 == 0)
             {
-
                 this.nbBeefHead += 2;
             }
             if (idCard % 10 == 0)
             {
-
                 this.nbBeefHead += 1;
             }
             if (idCard % 11 == 0)
             {
-
                 this.nbBeefHead += 5;
             }
             if (nbBeefHead == 0)
             {
-
                 this.nbBeefHead = 1;
             }
 
@@ -68,5 +65,6 @@ namespace six_qui_prend
 
             return json;
         }
+
     }
 }

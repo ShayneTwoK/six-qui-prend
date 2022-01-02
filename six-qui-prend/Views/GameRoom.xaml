@@ -20,7 +20,7 @@
             <ImageBrush ImageSource="/images/wallpaper.png"/>
         </Grid.Background>
 
-        <TextBlock Margin="312,36,319,0" TextWrapping="Wrap" FontStretch="Normal" TextAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="18" Height="28" VerticalAlignment="Top"><Run Language="fr-fr" Text="Le Joueur 1 joue son tour"/></TextBlock>
+        <TextBlock x:Name="GameStatus" Margin="312,36,319,0" TextWrapping="Wrap" FontStretch="Normal" TextAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="18" Height="28" VerticalAlignment="Top"><Run Language="fr-fr" Text="Le Joueur 1 joue son tour"/></TextBlock>
 
         <Button
               Style="{StaticResource MaterialDesignFloatingActionSecondaryDarkButton}"
@@ -32,7 +32,7 @@
                />
         </Button>
 
-        <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="104,423,0,0" Width="843">
+        <Grid x:Name="Hand" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="104,423,0,0" Width="843">
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>

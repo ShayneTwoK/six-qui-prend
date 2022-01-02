@@ -59,3 +59,4 @@ E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\o
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\ref\six-qui-prend.dll
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.pdb
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.genruntimeconfig.cache
+E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.csproj.AssemblyReference.cache

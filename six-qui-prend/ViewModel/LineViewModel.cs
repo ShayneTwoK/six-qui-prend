@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace six_qui_prend.Models
+namespace six_qui_prend.ViewModel
 {
-    public class Game
+    public class LineViewModel : ViewModelBase
     {
+
     }
 }
