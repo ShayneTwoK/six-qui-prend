@@ -16,17 +16,17 @@
                 <RowDefinition Height="0"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="27"/>
-                <ColumnDefinition Width="74"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="79"/>
                 <ColumnDefinition Width="4"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="1" Grid.Column="1" Text="IMAGE" TextAlignment="Center" VerticalAlignment="Center" Height="16"/>
-            <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding IdCard}" TextAlignment="Center" Margin="0,0,-23,0" VerticalAlignment="Bottom" Height="16"/>
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding IdCard}" TextAlignment="Center" VerticalAlignment="Top" Margin="0,9,0,0" Height="16"/>
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding IdCard}" TextAlignment="Center" Margin="0,0,0,-14"/>
-            <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding IdCard}" TextAlignment="Center" Margin="0,0,-23,-14"/>
-            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding NbBeefHead}" TextAlignment="Center" Margin="16,0,16,-14"/>
+            <TextBlock Style="{StaticResource CustomFont}" Grid.Row="1" Grid.Column="1" Text="104" TextAlignment="Center" VerticalAlignment="Center" Height="50" FontSize="44"/>
+            <TextBlock Style="{StaticResource CustomFont}" Grid.Row="0" Grid.Column="2" Text="{Binding IdCard}" TextAlignment="Center" Margin="0,0,-23,0" VerticalAlignment="Bottom" Height="16"/>
+            <TextBlock Style="{StaticResource CustomFont}" Grid.Row="0" Grid.Column="0" Text="{Binding IdCard}" TextAlignment="Center" VerticalAlignment="Top" Margin="0,9,0,0" Height="16"/>
+            <TextBlock Style="{StaticResource CustomFont}" Grid.Row="2" Grid.Column="0" Text="{Binding IdCard}" TextAlignment="Center" Margin="0,0,0,-14"/>
+            <TextBlock Style="{StaticResource CustomFont}" Grid.Row="2" Grid.Column="2" Text="{Binding IdCard}" TextAlignment="Center" Margin="0,0,-23,-14"/>
+            <TextBlock Style="{StaticResource CustomFont}" Grid.Row="2" Grid.Column="1" Text="{Binding NbBeefHead}" TextAlignment="Center" Margin="16,0,16,-14"/>
         </Grid>
     </Border>
 

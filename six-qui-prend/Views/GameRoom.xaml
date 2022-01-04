@@ -32,7 +32,7 @@
                />
         </Button>
 
-        <Grid x:Name="Hand" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="104,423,0,0" Width="843">
+        <Grid x:Name="Hand" Margin="104,0,53,0" Height="161" VerticalAlignment="Bottom">
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
@@ -62,7 +62,7 @@
             <view:ViewCardPlayer Grid.Column="8" Grid.ColumnSpan="2"/>
             <view:ViewCardPlayer Grid.Column="9" Grid.ColumnSpan="2"/>
         </Grid>
-        
+
     </Grid>
 </Window>
  

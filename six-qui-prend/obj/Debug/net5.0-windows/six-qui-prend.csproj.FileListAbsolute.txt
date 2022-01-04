@@ -60,3 +60,34 @@ E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\o
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.pdb
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.genruntimeconfig.cache
 E:\Users\Shayne\Documents\Ynov\DEV LOGICIEL AVANCE\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.csproj.AssemblyReference.cache
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\bin\Debug\net5.0-windows\six-qui-prend.exe
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\bin\Debug\net5.0-windows\six-qui-prend.deps.json
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\bin\Debug\net5.0-windows\six-qui-prend.runtimeconfig.json
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\bin\Debug\net5.0-windows\six-qui-prend.runtimeconfig.dev.json
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\bin\Debug\net5.0-windows\six-qui-prend.dll
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\bin\Debug\net5.0-windows\ref\six-qui-prend.dll
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\bin\Debug\net5.0-windows\six-qui-prend.pdb
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\bin\Debug\net5.0-windows\MaterialDesignColors.dll
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\bin\Debug\net5.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\Views\GameRoom.g.cs
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\Views\ViewCardPlayer.g.cs
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend_MarkupCompile.cache
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend_MarkupCompile.lref
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\App.baml
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\Views\GameRoom.baml
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\Views\ViewCardPlayer.baml
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.g.resources
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.AssemblyInfoInputs.cache
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.AssemblyInfo.cs
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.csproj.CoreCompileInputs.cache
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.csproj.CopyComplete
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.dll
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\ref\six-qui-prend.dll
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.pdb
+C:\Users\Cobeo-coffee\Documents\YNOV M1\Dev logiciel avancé\Projet 6 qui prend\six-qui-prend\six-qui-prend\obj\Debug\net5.0-windows\six-qui-prend.genruntimeconfig.cache

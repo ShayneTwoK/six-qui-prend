@@ -128,19 +128,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Shayne\\.nuget\\packages\\": {}
+    "C:\\Users\\Cobeo-coffee\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Users\\Shayne\\Documents\\Ynov\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
+      "projectUniqueName": "C:\\Users\\Cobeo-coffee\\Documents\\YNOV M1\\Dev logiciel avancé\\Projet 6 qui prend\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
       "projectName": "six-qui-prend",
-      "projectPath": "E:\\Users\\Shayne\\Documents\\Ynov\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
-      "packagesPath": "C:\\Users\\Shayne\\.nuget\\packages\\",
-      "outputPath": "E:\\Users\\Shayne\\Documents\\Ynov\\DEV LOGICIEL AVANCE\\six-qui-prend\\six-qui-prend\\obj\\",
+      "projectPath": "C:\\Users\\Cobeo-coffee\\Documents\\YNOV M1\\Dev logiciel avancé\\Projet 6 qui prend\\six-qui-prend\\six-qui-prend\\six-qui-prend.csproj",
+      "packagesPath": "C:\\Users\\Cobeo-coffee\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Cobeo-coffee\\Documents\\YNOV M1\\Dev logiciel avancé\\Projet 6 qui prend\\six-qui-prend\\six-qui-prend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Shayne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Cobeo-coffee\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -185,24 +185,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[5.0.0, 5.0.0]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[5.0.12, 5.0.12]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[5.0.0, 5.0.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[5.0.0, 5.0.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -211,7 +193,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
