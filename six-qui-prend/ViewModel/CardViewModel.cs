@@ -20,6 +20,7 @@ namespace six_qui_prend.ViewModel
         }
 
         private int _nbBeefHead;
+
         public int NbBeefHead
         {
             get { return _nbBeefHead; }
@@ -28,6 +29,12 @@ namespace six_qui_prend.ViewModel
                 _nbBeefHead = value;
                 OnPropertyChanged(nameof(NbBeefHead));
             }
+        }
+
+        public CardViewModel(int idCard, int nbBeefHead)
+        {
+            IdCard = idCard;
+            NbBeefHead = nbBeefHead;
         }
 
     }

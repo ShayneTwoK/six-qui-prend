@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using six_qui_prend.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -25,6 +27,39 @@ namespace six_qui_prend
         {
             InitializeComponent();
 
+            // Creation des cartes du Player
+            // prend 10 cartes random du Deck en json
+            string json = @"[{'idCard':1,'nbBeefHead':1},{'idCard':2,'nbBeefHead':1},{'idCard':3,'nbBeefHead':1},{'idCard':4,'nbBeefHead':1},{'idCard':5,'nbBeefHead':2},{'idCard':6,'nbBeefHead':1},{'idCard':7,'nbBeefHead':1},{'idCard':8,'nbBeefHead':1},{'idCard':9,'nbBeefHead':1},{'idCard':10,'nbBeefHead':3}]";
+            // les convertit en list de cartes pour l'affichage
+            List<Card> handPlayer = JsonConvert.DeserializeObject<List<Card>>(json);
+
+            this.DataContext = new Card(1, 3);
+
+            for (int i = 0; i < 11; i++)
+            {
+                var vcp = new View.ViewCardPlayer();
+
+                Hand.Children.Add(vcp);
+                Grid.SetColumn(vcp, i);
+                Grid.SetColumnSpan(vcp, 2);
+
+                foreach (var element in vcp.GridOneCard.Children)
+                {
+
+                    if (element is TextBlock)
+                    {
+                        ((TextBlock)element).Text = "{Binding IdCard}";
+
+                        if (vcp.Name == "BeefHead")
+                        {
+                            ((TextBlock)element).Text = "{Binding NbBeefHead}";
+                        }
+
+                    }
+
+                }
+            }
+
             Socket s;
 
             IPAddress ip = IPAddress.Parse("127.0.0.1");
@@ -48,6 +83,8 @@ namespace six_qui_prend
                 System.Threading.Thread.Sleep(2000);
                 Console.Write("Error : " + e1);
             }
+
+
         }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)

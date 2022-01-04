@@ -13,5 +13,6 @@ namespace six_qui_prend
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

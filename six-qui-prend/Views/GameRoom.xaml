@@ -51,6 +51,8 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
+            <!--
+            
             <view:ViewCardPlayer Grid.Column="0" Grid.ColumnSpan="2"/>
             <view:ViewCardPlayer Grid.Column="1" Grid.ColumnSpan="2"/>
             <view:ViewCardPlayer Grid.Column="2" Grid.ColumnSpan="2"/>
@@ -61,6 +63,7 @@
             <view:ViewCardPlayer Grid.Column="7" Grid.ColumnSpan="2"/>
             <view:ViewCardPlayer Grid.Column="8" Grid.ColumnSpan="2"/>
             <view:ViewCardPlayer Grid.Column="9" Grid.ColumnSpan="2"/>
+            -->
         </Grid>
         
     </Grid>
