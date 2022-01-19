@@ -1,4 +1,5 @@
-﻿using System;
+﻿using six_qui_prend.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -24,6 +25,8 @@ namespace six_qui_prend
         public GameRoom()
         {
             InitializeComponent();
+
+            this.DataContext = new GameBoardViewModel();
 
             Socket s;
 

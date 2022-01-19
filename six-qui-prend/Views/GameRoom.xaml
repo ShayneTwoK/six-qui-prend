@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:six_qui_prend"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:view="clr-namespace:six_qui_prend.View"
+        xmlns:view="clr-namespace:six_qui_prend.View" xmlns:viewmodel="clr-namespace:six_qui_prend.ViewModel"
+        d:DataContext="{d:DesignInstance Type=viewmodel:GameBoardViewModel}"
         x:Class="six_qui_prend.GameRoom"
         mc:Ignorable="d"
         Title="GameRoom"
@@ -32,6 +33,15 @@
                />
         </Button>
 
+        <ItemsControl VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding Hand}" Margin="104,436,84,0">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <view:ViewCardPlayer/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
+        <!-- 
         <Grid x:Name="Hand" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="104,423,0,0" Width="843">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -62,7 +72,7 @@
             <view:ViewCardPlayer Grid.Column="8" Grid.ColumnSpan="2"/>
             <view:ViewCardPlayer Grid.Column="9" Grid.ColumnSpan="2"/>
         </Grid>
-        
+        -->
     </Grid>
 </Window>
  
