@@ -12,67 +12,44 @@
         Title="GameRoom"
         Icon="../images/icon-app.ico"
         WindowStartupLocation="CenterScreen"
-        Height="600" 
-        Width="1000"
+        Height="800" 
+        Width="1200"
         MinWidth="1000" MinHeight="600" Closed="Window_Closed">
 
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/images/wallpaper.png"/>
-        </Grid.Background>
+	<Grid>
+		<Grid.Background>
+			<ImageBrush ImageSource="/images/wallpaper.png"/>
+		</Grid.Background>
 
-        <TextBlock x:Name="GameStatus" Margin="312,36,319,0" TextWrapping="Wrap" FontStretch="Normal" TextAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="18" Height="28" VerticalAlignment="Top"><Run Language="fr-fr" Text="Le Joueur 1 joue son tour"/></TextBlock>
+		<TextBlock x:Name="GameStatus" Margin="312,36,319,0" TextWrapping="Wrap" TextAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="18" Height="28" VerticalAlignment="Top"
+                   Text="Message de statut du jeu"></TextBlock>
 
-        <Button
+		<Button
               Style="{StaticResource MaterialDesignFloatingActionSecondaryDarkButton}"
               ToolTip="MaterialDesignFloatingActionSecondaryDarkButton"
               Click="Button_Click_Back"
               IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="29,24,0,0" Background="#FF3A3DB7" MaxWidth="56" MaxHeight="56" HorizontalAlignment="Left" Width="56" Height="56" VerticalAlignment="Top">
-            <materialDesign:PackIcon
+			<materialDesign:PackIcon
               Kind="ArrowLeft" Height="39" Width="46" HorizontalAlignment="Center"
                />
-        </Button>
+		</Button>
 
-        <ItemsControl VerticalAlignment="Top" HorizontalAlignment="Left" ItemsSource="{Binding Hand}" Margin="104,436,84,0">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <view:ViewCardPlayer/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-        
-        <!-- 
-        <Grid x:Name="Hand" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="104,423,0,0" Width="843">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
+		<ListView Margin="119,554,180,0" VerticalAlignment="Top" Height="230" d:ItemsSource="{d:SampleData ItemCount=6}" ItemsSource="{Binding Hand}">
+			<ListView.ItemsPanel>
+				<ItemsPanelTemplate >
+					<StackPanel Orientation="Horizontal" />
+				</ItemsPanelTemplate>
+			</ListView.ItemsPanel>
 
-            <view:ViewCardPlayer Grid.Column="0" Grid.ColumnSpan="2"/>
-            <view:ViewCardPlayer Grid.Column="1" Grid.ColumnSpan="2"/>
-            <view:ViewCardPlayer Grid.Column="2" Grid.ColumnSpan="2"/>
-            <view:ViewCardPlayer Grid.Column="3" Grid.ColumnSpan="2"/>
-            <view:ViewCardPlayer Grid.Column="4" Grid.ColumnSpan="2"/>
-            <view:ViewCardPlayer Grid.Column="5" Grid.ColumnSpan="2"/>
-            <view:ViewCardPlayer Grid.Column="6" Grid.ColumnSpan="2"/>
-            <view:ViewCardPlayer Grid.Column="7" Grid.ColumnSpan="2"/>
-            <view:ViewCardPlayer Grid.Column="8" Grid.ColumnSpan="2"/>
-            <view:ViewCardPlayer Grid.Column="9" Grid.ColumnSpan="2"/>
-        </Grid>
-        -->
-    </Grid>
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<view:ViewCardPlayer/>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+
+		<Button Content="CONFIRMER" Margin="0,684,32,68" HorizontalAlignment="Right" Width="115" IsEnabled="False"/>
+
+	</Grid>
 </Window>
  
