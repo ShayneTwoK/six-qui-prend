@@ -4,32 +4,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:six_qui_prend.View"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
-             xmlns:viewmodel="clr-namespace:six_qui_prend.ViewModel"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodel="clr-namespace:six_qui_prend.ViewModel"
              x:Class="six_qui_prend.View.ViewCardPlayer"
-             mc:Ignorable="d" Width="128">
+             mc:Ignorable="d" Width="128" MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave">
 
-    <Border x:Name="borderCard" CornerRadius="8,8,8,8" Height="161" >
-        <Grid x:Name="GridOneCard">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="111.543"/>
-                <RowDefinition Height="0"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="27"/>
-                <ColumnDefinition Width="74"/>
-                <ColumnDefinition Width="4"/>
-            </Grid.ColumnDefinitions>
+        <Border x:Name="borderCard" CornerRadius="8,8,8,8" Height="161" BorderThickness="0,0,0,0" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="111.543"/>
+                    <RowDefinition Height="0"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="27"/>
+                    <ColumnDefinition Width="74"/>
+                    <ColumnDefinition Width="4"/>
+                </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" Height="16"/>
-            <TextBlock Grid.Row="0" Grid.Column="2" TextAlignment="Center" Margin="0,0,-23,0" VerticalAlignment="Bottom" Height="16"/>
-            <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center" VerticalAlignment="Top" Margin="0,9,0,0" Height="16"/>
-            <TextBlock Grid.Row="2" Grid.Column="0" TextAlignment="Center" Margin="0,0,0,-14"/>
-            <TextBlock Grid.Row="2" Grid.Column="2" TextAlignment="Center" Margin="0,0,-23,-14"/>
-            <TextBlock x:Name="BeefHead" Grid.Row="2" Grid.Column="1" TextAlignment="Center" Margin="16,0,16,-14"/>
-        </Grid>
-    </Border>
-
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="IMAGE" TextAlignment="Center" VerticalAlignment="Center" Height="16"/>
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding idCard}" TextAlignment="Center" Margin="0,0,-23,0" VerticalAlignment="Bottom" Height="16"/>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding idCard}" TextAlignment="Center" VerticalAlignment="Top" Margin="0,9,0,0" Height="16"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding idCard}" TextAlignment="Center" Margin="0,0,0,-14"/>
+                <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding idCard}" TextAlignment="Center" Margin="0,0,-23,-14"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding nbBeefHead}" TextAlignment="Center" Margin="16,0,16,-14"/>
+            </Grid>
+        </Border>
+	
 </UserControl>
     

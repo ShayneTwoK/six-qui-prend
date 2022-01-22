@@ -14,10 +14,10 @@ namespace six_qui_prend.Models
         public int idCard { get; set; }
         public int nbBeefHead { get; set; }
 
-        public Card(int idCard, int nbBeefHeads)
+        public Card(int idCard, int nbBeefHead)
         {
             this.idCard = idCard;
-            this.nbBeefHead = nbBeefHeads;
+            this.nbBeefHead = nbBeefHead;
         }
 
         public Card()

@@ -36,5 +36,14 @@ namespace six_qui_prend.View
 
         }
 
+        private void UserControl_MouseEnter(object sender, MouseEventArgs e)
+        {
+            this.Margin = new Thickness(0, 0, 0, 40);
+        }
+
+        private void UserControl_MouseLeave(object sender, MouseEventArgs e)
+        {
+            this.Margin = new Thickness(0, 0, 0, 0);
+        }
     }
 }
