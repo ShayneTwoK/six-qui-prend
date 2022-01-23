@@ -34,7 +34,7 @@
                />
 		</Button>
 
-		<ListView Margin="119,554,180,0" VerticalAlignment="Top" Height="230" d:ItemsSource="{d:SampleData ItemCount=6}" ItemsSource="{Binding Hand}">
+		<ListView x:Name="list_card_hand" Margin="119,554,180,0" VerticalAlignment="Top" Height="230" d:ItemsSource="{d:SampleData ItemCount=6}" ItemsSource="{Binding Hand}" SelectionChanged="list_card_hand_SelectionChanged">
 			<ListView.ItemsPanel>
 				<ItemsPanelTemplate >
 					<StackPanel Orientation="Horizontal" />
@@ -48,7 +48,7 @@
 			</ListView.ItemTemplate>
 		</ListView>
 
-		<Button Content="CONFIRMER" Margin="0,684,32,68" HorizontalAlignment="Right" Width="115" IsEnabled="False"/>
+		<Button x:Name="btn_confirm_card" Content="CONFIRMER" Margin="0,684,32,68" HorizontalAlignment="Right" Width="115" IsEnabled="False" Click="btn_confirm_card_Click"/>
 
 	</Grid>
 </Window>
