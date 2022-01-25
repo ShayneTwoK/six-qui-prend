@@ -1,0 +1,100 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:six_qui_prend"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:view="clr-namespace:six_qui_prend.View" xmlns:viewmodel="clr-namespace:six_qui_prend.ViewModel"
+        d:DataContext="{d:DesignInstance Type=viewmodel:GameBoardViewModel}"
+        x:Class="six_qui_prend.GameRoom"
+        mc:Ignorable="d"
+        Title="GameRoom"
+        Icon="../images/icon-app.ico"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        WindowState="Maximized"
+        Closed="Window_Closed">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/images/wallpaper.png"/>
+        </Grid.Background>
+
+        <TextBlock x:Name="GameStatus" Margin="312,36,319,0" TextWrapping="Wrap" TextAlignment="Center" FontFamily="Bahnschrift SemiBold" FontSize="18" Height="28" VerticalAlignment="Top"
+                   Text="Message de statut du jeu"></TextBlock>
+
+        <Button
+              Style="{StaticResource MaterialDesignFloatingActionSecondaryDarkButton}"
+              ToolTip="MaterialDesignFloatingActionSecondaryDarkButton"
+              Click="Button_Click_Back"
+              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="29,24,0,0" Background="#FF3A3DB7" MaxWidth="56" MaxHeight="56" HorizontalAlignment="Left" Width="56" Height="56" VerticalAlignment="Top">
+            <materialDesign:PackIcon
+              Kind="ArrowLeft" Height="39" Width="46" HorizontalAlignment="Center"
+               />
+        </Button>
+
+        <!--Grid Margin="0,20,20,0" Width="300" HorizontalAlignment="Right" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="150" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="150" />
+            </Grid.ColumnDefinitions>
+
+            <view:PlayerView Grid.Column="0" Grid.Row="0" />
+            <view:PlayerView Grid.Column="1" Grid.Row="0" />
+            <view:PlayerView Grid.Column="0" Grid.Row="1" />
+            <view:PlayerView Grid.Column="1" Grid.Row="1" />
+            <view:PlayerView Grid.Column="0" Grid.Row="2" />
+            <view:PlayerView Grid.Column="1" Grid.Row="2" />
+            <view:PlayerView Grid.Column="0" Grid.Row="3" />
+            <view:PlayerView Grid.Column="1" Grid.Row="3" />
+            <view:PlayerView Grid.Column="0" Grid.Row="4" />
+            <view:PlayerView Grid.Column="1" Grid.Row="4" />
+        </Grid-->
+
+        <ItemsControl x:Name="list_players" Margin="0,30,20,0" d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Players}" Width="300" Height="850" HorizontalAlignment="Right" VerticalAlignment="Top" >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical" Height="850" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <view:PlayerView/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+
+
+
+
+
+
+        <ListView x:Name="list_card_hand" Margin="119,0,180,0" d:ItemsSource="{d:SampleData ItemCount=6}" ItemsSource="{Binding Hand}" SelectionChanged="list_card_hand_SelectionChanged" Height="230" VerticalAlignment="Bottom">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate >
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <view:ViewCardPlayer/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button x:Name="btn_confirm_card" Content="CONFIRMER" Margin="0,0,32,68" HorizontalAlignment="Right" Width="115" IsEnabled="False" Click="btn_confirm_card_Click" Height="32" VerticalAlignment="Bottom"/>
+
+    </Grid>
+</Window>
+ 

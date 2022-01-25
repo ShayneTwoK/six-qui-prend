@@ -14,13 +14,16 @@ namespace six_qui_prend.ViewModel
     public class GameBoardViewModel : ViewModelBase
     {
         private List<Card> hand;
+        private List<Player> players;
         string json = @"[{'idCard':1,'nbBeefHead':1},{'idCard':2,'nbBeefHead':1},{'idCard':3,'nbBeefHead':1},{'idCard':4,'nbBeefHead':1},{'idCard':5,'nbBeefHead':2},{'idCard':6,'nbBeefHead':1},{'idCard':7,'nbBeefHead':1},{'idCard':8,'nbBeefHead':1},{'idCard':9,'nbBeefHead':1},{'idCard':10,'nbBeefHead':3}]";
+        string playersJson = @"[{'idPlayer':1,'name':'uno'},{'idPlayer':2,'name':'dos'},{'idPlayer':3,'name':'tres'},{'idPlayer':4,'name':'quatro'},{'idPlayer':5,'name':'cinco'},{'idPlayer':6,'name':'seis'},{'idPlayer':7,'name':'siete'},{'idPlayer':8,'name':'ocho'},{'idPlayer':9,'name':'nueve'},{'idPlayer':10,'name':'diez'}]";
         public Card? selectedCardhand { get; set; }
 
         public GameBoardViewModel()
         {
             this.selectedCardhand = selectedCardhand;
             this.hand = new List<Card>();
+            this.players = new List<Player>();
             Thread t = new Thread(new ThreadStart(waitDataFromSocket));
             t.Start();
         }
@@ -35,19 +38,41 @@ namespace six_qui_prend.ViewModel
             }
         }
 
+        public List<Player> Players
+        {
+            get { return players; }
+            set
+            {
+                players = value;
+                OnPropertyChanged(nameof(players));
+            }
+        }
+
         public void waitDataFromSocket()
         {
 
             List<Card>? hand = JsonConvert.DeserializeObject<List<Card>>(json);
+            List<Player>? players = JsonConvert.DeserializeObject<List<Player>>(playersJson);
 
-            if (hand == null)
-            {
-                Console.WriteLine("DATA NULL");
-            }
-            else
+            if (hand != null && players != null)
             {
                 Console.WriteLine("DATA HERE");
                 Hand = hand;
+                Players = players;
+            }
+            else if (hand != null && players == null)
+            {
+                Console.WriteLine("DATA HAND");
+                Hand = hand;
+            }
+            else if (hand == null && players != null)
+            {
+                Console.WriteLine("DATA PLAYERS");
+                Players = players;
+            }
+            else
+            {
+                Console.WriteLine("DATA NULL");
             }
 
         }

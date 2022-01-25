@@ -11,9 +11,20 @@
   <ItemGroup>
     <None Remove="Fonts\CCKillJoy-Italic.ttf" />
     <None Remove="Fonts\Lemiesz.ttf" />
+    <None Remove="Images\betos_bleu.png" />
+    <None Remove="Images\bleu.png" />
     <None Remove="Images\card_background.png" />
+    <None Remove="Images\gris.png" />
     <None Remove="images\icon-app.ico" />
+    <None Remove="Images\jaune.png" />
+    <None Remove="Images\marron.png" />
+    <None Remove="Images\noir.png" />
+    <None Remove="Images\orange.png" />
+    <None Remove="Images\rouge.png" />
     <None Remove="images\textsixquiprend.png" />
+    <None Remove="Images\ugly_brown.png" />
+    <None Remove="Images\vert.png" />
+    <None Remove="Images\violet.png" />
     <None Remove="images\wallpaper.png" />
   </ItemGroup>
 
@@ -32,6 +43,42 @@
     <Resource Include="images\icon-app.ico" />
     <Resource Include="images\textsixquiprend.png" />
     <Resource Include="images\wallpaper.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\betos_bleu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\bleu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\gris.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\jaune.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\marron.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\noir.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\orange.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\rouge.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ugly_brown.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\vert.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\violet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

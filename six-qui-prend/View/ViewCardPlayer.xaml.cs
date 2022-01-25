@@ -26,12 +26,6 @@ namespace six_qui_prend.View
         public ViewCardPlayer()
         {
             InitializeComponent();
-
-            Random randomNbr = new Random();
-            Brush brush = new SolidColorBrush(Color.FromRgb((byte)randomNbr.Next(1, 255), (byte)randomNbr.Next(1, 255), (byte)randomNbr.Next(1, 233)));
-
-            borderCard.Background = brush;
-
         }
 
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)

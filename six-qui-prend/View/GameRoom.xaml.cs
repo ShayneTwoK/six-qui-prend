@@ -19,7 +19,6 @@ namespace six_qui_prend
     {
         public GameRoom()
         {
-            this.SizeToContent = SizeToContent.WidthAndHeight;
 
             InitializeComponent();
 
