@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using six_qui_prend.Models;
+using six_qui_prend.ViewModel;
+using System;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace six_qui_prend
 {
@@ -23,31 +19,15 @@ namespace six_qui_prend
     {
         public GameRoom()
         {
+            this.SizeToContent = SizeToContent.WidthAndHeight;
+
             InitializeComponent();
 
-            Socket s;
+            GameBoardViewModel gbvm = new GameBoardViewModel();
+            gbvm.connectServer();
 
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
-            int port = 3490;
-            IPEndPoint remoteEP = new IPEndPoint(ip, port);
-
-            s = new Socket(AddressFamily.InterNetwork,
-                SocketType.Stream, ProtocolType.Tcp);
-
-            try
-            {
-                s.Connect(remoteEP);
-                System.Threading.Thread.Sleep(2000);
-                byte[] byData = System.Text.Encoding.ASCII.GetBytes("CONNECT");
-                s.Send(byData);
-                System.Threading.Thread.Sleep(2000);
-                s.Close();
-            }
-            catch (Exception e1)
-            {
-                System.Threading.Thread.Sleep(2000);
-                Console.Write("Error : " + e1);
-            }
+            this.DataContext = gbvm;
+            
         }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
@@ -65,5 +45,28 @@ namespace six_qui_prend
             mw.Show();
         }
 
+        private void list_card_hand_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            btn_confirm_card.IsEnabled = true;
+            Card? selectedCard = (Card?)list_card_hand.SelectedItems[0];
+
+            Trace.WriteLine("id de la carte choisit : " + selectedCard.idCard + ", nombre tête de boeuf : " + selectedCard.nbBeefHead);
+            
+        }
+
+        private void btn_confirm_card_Click(object sender, RoutedEventArgs e)
+        {
+            
+            // A FAIRE : Check si le joueur à choisit une colonne ou placer sa carte
+
+            // Check si le btn confirmer et activé (le joueur à choisit une carte)
+            if(btn_confirm_card.IsEnabled == true)
+            {
+                Card? selectedCard = (Card?)list_card_hand.SelectedItems[0];
+                // ENVOI JSON AU SERVEUR
+                Trace.WriteLine(JsonSerializer.Serialize(selectedCard));
+            }
+           
+        }
     }
 }
