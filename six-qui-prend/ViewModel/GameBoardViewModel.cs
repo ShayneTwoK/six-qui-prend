@@ -2,6 +2,7 @@
 using six_qui_prend.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -15,8 +16,11 @@ namespace six_qui_prend.ViewModel
     {
         private List<Card> hand;
         private List<Player> players;
-        string json = @"[{'idCard':1,'nbBeefHead':1},{'idCard':2,'nbBeefHead':1},{'idCard':3,'nbBeefHead':1},{'idCard':4,'nbBeefHead':1},{'idCard':5,'nbBeefHead':2},{'idCard':6,'nbBeefHead':1},{'idCard':7,'nbBeefHead':1},{'idCard':8,'nbBeefHead':1},{'idCard':9,'nbBeefHead':1},{'idCard':10,'nbBeefHead':3}]";
+        private ObservableCollection<List<Card>> lines;
+
+        string handJson = @"[{'idCard':1,'nbBeefHead':1},{'idCard':2,'nbBeefHead':1},{'idCard':3,'nbBeefHead':1},{'idCard':4,'nbBeefHead':1},{'idCard':5,'nbBeefHead':2},{'idCard':6,'nbBeefHead':1},{'idCard':7,'nbBeefHead':1},{'idCard':8,'nbBeefHead':1},{'idCard':9,'nbBeefHead':1},{'idCard':10,'nbBeefHead':3}]";
         string playersJson = @"[{'idPlayer':1,'name':'uno'},{'idPlayer':2,'name':'dos'},{'idPlayer':3,'name':'tres'},{'idPlayer':4,'name':'quatro'},{'idPlayer':5,'name':'cinco'},{'idPlayer':6,'name':'seis'},{'idPlayer':7,'name':'siete'},{'idPlayer':8,'name':'ocho'},{'idPlayer':9,'name':'nueve'},{'idPlayer':10,'name':'diez'}]";
+        string linesJson = @"[[{'idCard':'2','nbBeefHead':'1'},{'idCard':'55','nbBeefHead':'7'}],[{'idCard':'59','nbBeefHead':'2'},{'idCard':'84','nbBeefHead':'1'},{'idCard':'78','nbBeefHead':'1'},{'idCard':'100','nbBeefHead':'3'}],[{'idCard':'35','nbBeefHead':'1'},{'idCard':'74','nbBeefHead':'2'},{'idCard':'68','nbBeefHead':'1'}],[{'idCard':'80','nbBeefHead':'3'}]]";
         public Card? selectedCardhand { get; set; }
 
         public GameBoardViewModel()
@@ -24,6 +28,8 @@ namespace six_qui_prend.ViewModel
             this.selectedCardhand = selectedCardhand;
             this.hand = new List<Card>();
             this.players = new List<Player>();
+            this.lines = new ObservableCollection<List<Card>>();
+
             Thread t = new Thread(new ThreadStart(waitDataFromSocket));
             t.Start();
         }
@@ -48,17 +54,29 @@ namespace six_qui_prend.ViewModel
             }
         }
 
+        public ObservableCollection<List<Card>> Lines
+        {
+            get { return lines; }
+            set
+            {
+                lines = value;
+                OnPropertyChanged(nameof(Lines));
+            }
+        }
+
         public void waitDataFromSocket()
         {
 
-            List<Card>? hand = JsonConvert.DeserializeObject<List<Card>>(json);
+            List<Card>? hand = JsonConvert.DeserializeObject<List<Card>>(handJson);
             List<Player>? players = JsonConvert.DeserializeObject<List<Player>>(playersJson);
+            ObservableCollection<List<Card>>? lines = JsonConvert.DeserializeObject<ObservableCollection<List<Card>>>(linesJson);
 
-            if (hand != null && players != null)
+            if (hand != null && players != null && lines != null)
             {
                 Console.WriteLine("DATA HERE");
                 Hand = hand;
                 Players = players;
+                Lines = lines;
             }
             else if (hand != null && players == null)
             {
