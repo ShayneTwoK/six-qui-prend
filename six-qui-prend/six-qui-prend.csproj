@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="Fonts\CCKillJoy-Italic.ttf" />
     <None Remove="Fonts\Lemiesz.ttf" />
+    <None Remove="Images\card_background.png" />
     <None Remove="images\icon-app.ico" />
     <None Remove="images\textsixquiprend.png" />
     <None Remove="images\wallpaper.png" />
@@ -24,6 +25,9 @@
   <ItemGroup>
     <Resource Include="Fonts\Lemiesz.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\card_background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="images\icon-app.ico" />
     <Resource Include="images\textsixquiprend.png" />
