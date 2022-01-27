@@ -34,9 +34,33 @@ namespace six_qui_prend
 
         private void Button_Click_Create(object sender, RoutedEventArgs e)
         {
+            var s = ServerCommunication.OpenConnection("127.0.0.1", 3490);
+            if (s == null)
+                return;
+            Console.WriteLine("Connection to server opened successfully !");
+
+            //string buffer;// Envoi du buffer au serveur
+            ServerCommunication.Send(s, "{'key':'CREATE', 'body':'', 'username':'pseudo'}");
+
+            // Lecture de la réponse du serveur
+            //buffer = ServerCommunication.Receive(s);
+
+            // Traitement du résultat lu sur la socket
+            /*if (buffer == "CONNECTION_CLOSED")
+            {
+                Console.WriteLine("Server has closed connection !");
+            }
+            else
+            {
+                // Affichage du message
+                Console.WriteLine(buffer);
+            }*/
+
             this.Hide();
-            GameRoom gm = new GameRoom();
+            GameRoom gm = new GameRoom(s);
             gm.Show();
+
+            //ServerCommunication.CloseConnection(s);
 
         }
 
