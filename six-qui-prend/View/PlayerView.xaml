@@ -5,14 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:six_qui_prend.View"
              mc:Ignorable="d" 
-             d:DesignHeight="150" d:DesignWidth="150">
+             d:DesignHeight="125" d:DesignWidth="125">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="125" />
+            <RowDefinition Height="100" />
             <RowDefinition Height="25" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="125" />
         </Grid.ColumnDefinitions>
         
         <Image x:Name="avatar" Source="/images/bleu.png" Grid.Row="0" />
