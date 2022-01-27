@@ -1,4 +1,5 @@
-﻿using six_qui_prend.Models;
+﻿using Newtonsoft.Json;
+using six_qui_prend.Models;
 using six_qui_prend.ViewModel;
 using System;
 using System.Diagnostics;
@@ -17,13 +18,16 @@ namespace six_qui_prend
     /// </summary>
     public partial class GameRoom : Window
     {
-        public GameRoom()
-        {
 
+        private Socket _socket;
+        private Card? _selectedCard;
+        public GameRoom(Socket socket)
+        {
+            _socket = socket;
             InitializeComponent();
 
             GameBoardViewModel gbvm = new GameBoardViewModel();
-            gbvm.connectServer();
+            //gbvm.connectServer();
 
             this.DataContext = gbvm;
             
@@ -32,6 +36,8 @@ namespace six_qui_prend
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
             this.Hide();
+            ServerCommunication.Send(_socket, "DISCONNECT");
+            ServerCommunication.CloseConnection(_socket);
             MainWindow mw = new MainWindow();
             mw.Show();
 
@@ -40,6 +46,8 @@ namespace six_qui_prend
         private void Window_Closed(object sender, EventArgs e)
         {
             this.Hide();
+            ServerCommunication.Send(_socket, "DISCONNECT");
+            ServerCommunication.CloseConnection(_socket);
             MainWindow mw = new MainWindow();
             mw.Show();
         }
@@ -47,13 +55,13 @@ namespace six_qui_prend
         private void list_card_hand_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             btn_confirm_card.IsEnabled = true;
-            Card? selectedCard = (Card?)list_card_hand.SelectedItems[0];
+            _selectedCard = (Card?)list_card_hand.SelectedItems[0];
 
-            Trace.WriteLine("id de la carte choisit : " + selectedCard.idCard + ", nombre tête de boeuf : " + selectedCard.nbBeefHead);
+            Trace.WriteLine("id de la carte choisit : " + _selectedCard.idCard + ", nombre tête de boeuf : " + _selectedCard.nbBeefHead);
             
         }
 
-        private void btn_confirm_card_Click(object sender, RoutedEventArgs e)
+        private async void btn_confirm_card_Click(object sender, RoutedEventArgs e)
         {
             
             // A FAIRE : Check si le joueur à choisit une colonne ou placer sa carte
@@ -63,7 +71,9 @@ namespace six_qui_prend
             {
                 Card? selectedCard = (Card?)list_card_hand.SelectedItems[0];
                 // ENVOI JSON AU SERVEUR
-                Trace.WriteLine(JsonSerializer.Serialize(selectedCard));
+                ServerCommunication.Send(_socket, "{'key':'SELECT_CARD', 'body':'{'idCard':1}', 'username':'pseudo'}");
+
+                Trace.WriteLine(System.Text.Json.JsonSerializer.Serialize(selectedCard));
             }
            
         }
