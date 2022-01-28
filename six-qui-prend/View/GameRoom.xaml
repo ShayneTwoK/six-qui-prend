@@ -49,28 +49,34 @@
         </ItemsControl>
 
 
-        <ItemsControl x:Name="list_lines_card" Margin="119,69,359,0" d:ItemsSource="{d:SampleData ItemCount=4}" ItemsSource="{Binding Lines}" Height="576" VerticalAlignment="Top" >
+        <ItemsControl x:Name="list_lines_card" Margin="119,69,319,0" d:ItemsSource="{d:SampleData ItemCount=6}" ItemsSource="{Binding Lines}" Height="560" VerticalAlignment="Top" >
+
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
+                    <StackPanel HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
-
+            
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <ItemsControl ItemsSource="{Binding .}">
+                        <ItemsControl ItemsSource="{Binding}">
+                            
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                            
                         <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <view:ViewCardPlayer/>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                                <DataTemplate>
+                                    <view:ViewCardPlayer/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-
-
-
 
         <ListView x:Name="list_card_hand" Margin="119,0,180,0" d:ItemsSource="{d:SampleData ItemCount=6}" ItemsSource="{Binding Hand}" SelectionChanged="list_card_hand_SelectionChanged" Height="230" VerticalAlignment="Bottom">
             <ListView.ItemsPanel>

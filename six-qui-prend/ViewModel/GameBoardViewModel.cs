@@ -20,7 +20,7 @@ namespace six_qui_prend.ViewModel
 
         string handJson = @"[{'idCard':1,'nbBeefHead':1},{'idCard':2,'nbBeefHead':1},{'idCard':3,'nbBeefHead':1},{'idCard':4,'nbBeefHead':1},{'idCard':5,'nbBeefHead':2},{'idCard':6,'nbBeefHead':1},{'idCard':7,'nbBeefHead':1},{'idCard':8,'nbBeefHead':1},{'idCard':9,'nbBeefHead':1},{'idCard':10,'nbBeefHead':3}]";
         string playersJson = @"[{'idPlayer':1,'name':'uno'},{'idPlayer':2,'name':'dos'},{'idPlayer':3,'name':'tres'},{'idPlayer':4,'name':'quatro'},{'idPlayer':5,'name':'cinco'},{'idPlayer':6,'name':'seis'},{'idPlayer':7,'name':'siete'},{'idPlayer':8,'name':'ocho'},{'idPlayer':9,'name':'nueve'},{'idPlayer':10,'name':'diez'}]";
-        string linesJson = @"[[{'idCard':'2','nbBeefHead':'1'},{'idCard':'55','nbBeefHead':'7'}],[{'idCard':'59','nbBeefHead':'2'},{'idCard':'84','nbBeefHead':'1'},{'idCard':'78','nbBeefHead':'1'},{'idCard':'100','nbBeefHead':'3'}],[{'idCard':'35','nbBeefHead':'1'},{'idCard':'74','nbBeefHead':'2'},{'idCard':'68','nbBeefHead':'1'}],[{'idCard':'80','nbBeefHead':'3'}]]";
+        string linesJson = @"[[{'idCard':'2','nbBeefHead':'1'},{'idCard':'55','nbBeefHead':'7'}],[{'idCard':'59','nbBeefHead':'2'},{'idCard':'84','nbBeefHead':'1'},{'idCard':'78','nbBeefHead':'1'},{'idCard':'100','nbBeefHead':'3'}, {'idCard':'37','nbBeefHead':'1'}, {'idCard':'95','nbBeefHead':'1'}],[{'idCard':'35','nbBeefHead':'1'},{'idCard':'74','nbBeefHead':'2'},{'idCard':'68','nbBeefHead':'1'}],[{'idCard':'80','nbBeefHead':'3'}]]";
         public Card? selectedCardhand { get; set; }
 
         public GameBoardViewModel()
