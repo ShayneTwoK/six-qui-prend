@@ -25,6 +25,11 @@ int Player::GetPoints()
 	return _points;
 }
 
+std::string Player::GetPseudo()
+{
+	return _pseudo;
+}
+
 Deck<CardModel> Player::GetHand()
 {
 	return _hand;

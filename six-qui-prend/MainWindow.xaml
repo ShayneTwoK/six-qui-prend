@@ -22,7 +22,7 @@
             materialDesign:ButtonAssist.CornerRadius="20"
             ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="179,0,585,135" MaxHeight="32" MaxWidth="236" MinWidth="1"
-            Click="Button_Click_Create" Height="32" VerticalAlignment="Bottom">
+            Click="Button_Click_Create" Height="32" VerticalAlignment="Bottom" Cursor="Hand">
             <TextBlock Text="CRÉER UNE SALLE" />
         </Button>
 

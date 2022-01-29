@@ -21,7 +21,8 @@ public:
     void handleNewPlayer(RequestBody* request);
     void handleEndGame(RequestBody* request);
     void handleChoice(RequestBody* request);
-    void handleStartGame(RequestBody* request);
+    void handleStartGame();
+    void handleInitColumns();
     void sendToPlayer(int handle, RequestBody* request);
     void sentToAllPlayer(RequestBody* request);
     Game* GetGame();

@@ -26,7 +26,7 @@ void GameEventHandler::handleEvent(RequestBody* request)
 		handleNewPlayer(request);
 		break;
 	case STARTGAME:
-		handleStartGame(request);
+		handleStartGame();
 	}
 }
 
@@ -36,6 +36,12 @@ void GameEventHandler::handleNewPlayer(RequestBody* request)
 	Player* player = _game->GetPlayer(request->GetHandle());
 	player->SetPseudo(pseudo);
 	json j;
+	j["players"] = json::array();
+	for (auto& player : _game->GetPlayers()) {
+		json player_json;
+		player_json["pseudo"] = player.second->GetPseudo();
+		j.push_back(player_json);
+	}
 	j["player"] = pseudo;
 	std::cout << "Change PSEUDO and send message to client";
 	RequestBody body("NEWPLAYER", j.dump(), player->GetHandle());
@@ -51,7 +57,7 @@ void GameEventHandler::handleChoice(RequestBody* request)
 {
 }
 
-void GameEventHandler::handleStartGame(RequestBody* request)
+void GameEventHandler::handleStartGame()
 {
 	_game->StartGame();
 
@@ -67,6 +73,24 @@ void GameEventHandler::handleStartGame(RequestBody* request)
 		RequestBody body("PLAYERCARDS", json.dump(), _player.first);
 		sendToPlayer(_player.first, &body);
 	}
+
+	handleInitColumns();
+	json state;
+	state["state"] = "CHOOSING";
+	RequestBody body("CHANGESTATE", state.dump(), 0);
+	sentToAllPlayer(&body);
+}
+
+void GameEventHandler::handleInitColumns()
+{
+	json json;
+	json["columns"] = json::array();
+	for (auto column : _game->GetBoard().GetColumns().GetList()) {
+		json["columns"].push_back(column.GetJson());
+	}
+	RequestBody body("INITCOLUMNS", json.dump(), 0);
+	sentToAllPlayer(&body);
+
 }
 
 Game* GameEventHandler::GetGame()

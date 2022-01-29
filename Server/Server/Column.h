@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include "CardModel.h"
+#include <nlohmann/json.hpp>
+using nlohmann::json;
 class Column {
 public:
 
@@ -22,6 +24,18 @@ public:
     int GetNumber() {
         return _num;
     };
+
+    nlohmann::json GetJson() {
+        nlohmann::json j;
+
+        j["num"] = _num;
+        j["cards"] = json::array();
+
+        for (auto card : _cards.GetList()) {
+            j["cards"].push_back(card.GetJson());
+        }
+        return j;
+    }
 
 private:
 
