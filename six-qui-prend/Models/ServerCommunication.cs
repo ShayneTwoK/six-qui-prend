@@ -11,7 +11,7 @@ namespace six_qui_prend.Models
 {
     public static class ServerCommunication
     {
-        private static bool isReceivingData = false;
+        public static bool isReceivingData = false;
         private static byte[]? buffer = null;
         private static bool isSendingData = false;
         private static string? receivedData = null;
@@ -73,7 +73,7 @@ namespace six_qui_prend.Models
 
         public static string? Receive(Socket s)
         {
-            if (s == null || s.Connected || s.Poll(10, SelectMode.SelectRead) && s.Available == 0)
+            if (s == null || !s.Connected || s.Poll(10, SelectMode.SelectRead) && s.Available == 0)
             {
                 //La connexion a été clôturée par le serveur ou bien un problème
                 //réseau est apparu
@@ -143,7 +143,7 @@ namespace six_qui_prend.Models
                 return "false";
             }
 
-            await Task.Run(() => { while (isReceivingData) ; });
+                await Task.Run(() => { while (isReceivingData) ; });
 
             isReceivingData = true;
             receivedData = null;
@@ -170,6 +170,9 @@ namespace six_qui_prend.Models
                         Console.WriteLine("Error while starting receiving data on socket : " + e.Message);
                     }
                 });
+
+            isReceivingData = false;
+
             return receivedData;
         }
         private static void ReceiveCallback(IAsyncResult AR)

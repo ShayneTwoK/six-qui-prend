@@ -10,9 +10,9 @@ namespace six_qui_prend.Models
     public class Player
     {
 
-        public string name { get; set; }
+        public string username { get; set; } = "";
 
-        public int idPlayer { get; set; }
+        /*public int idPlayer { get; set; }
 
         public int cardID;
 
@@ -20,7 +20,7 @@ namespace six_qui_prend.Models
 
         private Socket socket { get; set; }
 
-        private bool host { get; } = false;
+        private bool host { get; } = false;*/
 
 
        /* public void ChooseCardToPlay(Card chosenCard)
