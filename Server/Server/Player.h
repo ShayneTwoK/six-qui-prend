@@ -1,5 +1,4 @@
 #pragma once
-
 #include <string>
 #include <Poco/Net/SocketReactor.h>
 #include "CardModel.h"
@@ -15,7 +14,7 @@ public:
      * @Param SteamSocket is the socket accepting the connections
      * @Param SocketReactor is the reacting engine (threaded) which creates notifications about the socket
      */
-    Player( Poco::Net::SocketReactor& reactor, Poco::Net::StreamSocket& socket);
+    Player(Poco::Net::SocketReactor& reactor, Poco::Net::StreamSocket& socket);
 
     /**
      * @Brief Destructor

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b4d0b97e-cc53-4274-9408-c95f7ff2ee54}</ProjectGuid>
-    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <ProjectGuid>{d234b37f-4041-4a2f-8069-30608724fb9d}</ProjectGuid>
+    <RootNamespace>Server</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -141,12 +141,10 @@
   <ItemGroup>
     <ClCompile Include="CardModel.cpp" />
     <ClCompile Include="ConnectionHandler.cpp" />
-    <ClCompile Include="ConsoleApplication1.cpp" />
-    <ClCompile Include="Event.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameEventHandler.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="ReactorServer.cpp" />
+    <ClCompile Include="Server.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
@@ -154,12 +152,11 @@
     <ClInclude Include="Column.h" />
     <ClInclude Include="ConnectionHandler.h" />
     <ClInclude Include="Deck.h" />
-    <ClInclude Include="Event.h" />
-    <ClInclude Include="EventCallback.h" />
     <ClInclude Include="EventType.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameEventHandler.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="ReactorServer.cpp" />
     <ClInclude Include="RequestBody.h" />
     <ClInclude Include="Round.h" />
     <ClInclude Include="Singleton.h" />

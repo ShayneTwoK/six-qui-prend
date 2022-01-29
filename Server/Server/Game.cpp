@@ -54,7 +54,7 @@ GameStatus Game::GetGameStatus()
 
 bool Game::pointComparator(const std::pair<int, Player*> lhs, const std::pair<int, Player*> rhs)
 {
-	return lhs.second -> GetPoints() < rhs.second->GetPoints();
+	return lhs.second->GetPoints() < rhs.second->GetPoints();
 }
 
 void Game::StartGame()
@@ -80,7 +80,7 @@ Deck<CardModel> Game::DistributeCardsToPlayers()
 		std::vector<CardModel> cardList;
 		// Deal 10 cards to each player
 		for (int i = 0; i < 10; i++) {
-			 CardModel cardModel = --_cards;
+			CardModel cardModel = --_cards;
 			cardList.push_back(cardModel);
 		}
 		Player* p = player.second;
@@ -99,14 +99,14 @@ void Game::addPlayer(Player* p)
 void Game::ChooseCard(int handle, int num)
 {
 	Player* p = GetPlayer(handle);
-	CardModel card  = p->GetCardInHand(num);
+	CardModel card = p->GetCardInHand(num);
 	_chosenCards.push_back(std::make_pair(handle, card));
 }
 
 void Game::StartRound()
 {
 	std::vector<std::pair<Player*, CardModel*>> playersQueue;
-	for (auto& card: _chosenCards)
+	for (auto& card : _chosenCards)
 	{
 		Player* player = GetPlayer(card.first);
 		CardModel* c = &card.second;

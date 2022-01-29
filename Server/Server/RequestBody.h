@@ -10,7 +10,7 @@
 class RequestBody
 {
 public:
-	RequestBody(std::string key, std::string body, int handle): _key(key), _body(body), _handle(handle)
+	RequestBody(std::string key, std::string body, int handle) : _key(key), _body(body), _handle(handle)
 	{
 	};
 
@@ -26,7 +26,7 @@ public:
 		return _handle;
 	}
 
-	nlohmann::json GetJson(){
+	nlohmann::json GetJson() {
 		nlohmann::json j;
 
 		j["key"] = _key;

@@ -1,29 +1,29 @@
 #include <Poco/Util/ServerApplication.h>
 #include "Poco/Net/SocketAcceptor.h"
 #include "ConnectionHandler.h"
-class ReactorServer: public Poco::Util::ServerApplication {
+class ReactorServer : public Poco::Util::ServerApplication {
 public:
-    ReactorServer(Game& game): _game(game) {
-    
+    ReactorServer(Game& game) : _game(game) {
+
     };
-	~ReactorServer() {};
-    
+    ~ReactorServer() {};
+
     Game GetGame() {
         return _game;
     }
 protected:
 
     Game _game;
-	void initialize(Application& self) {
-		loadConfiguration();
-		ServerApplication::initialize(self);
-	}
+    void initialize(Application& self) {
+        loadConfiguration();
+        ServerApplication::initialize(self);
+    }
 
-	void unitialize() {
-		ServerApplication::uninitialize();
-	}
+    void unitialize() {
+        ServerApplication::uninitialize();
+    }
 
-	int main(const std::vector<std::string>& args) {
+    int main(const std::vector<std::string>& args) {
 
 
         // Server Socket
@@ -44,6 +44,6 @@ protected:
         reactor.stop();
         thread.join();
         return Application::EXIT_OK;
-	}
+    }
 
 };

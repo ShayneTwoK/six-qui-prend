@@ -8,7 +8,7 @@ public:
     Round() {};
     Round(std::vector<std::pair<Player*, CardModel*>> queue) {
         playersQueue = queue;
-      /*  sort(playersQueue.begin(), playersQueue.end(), &cardComparator);*/
+        /*  sort(playersQueue.begin(), playersQueue.end(), &cardComparator);*/
     }
 
     ~Round()
@@ -30,7 +30,7 @@ public:
 private:
     //define the function:
     bool cardComparator(std::pair<Player*, CardModel*> lhs, std::pair<Player*, CardModel*> rhs) {
-        return lhs.second ->GetNumber() < rhs.second -> GetNumber();
+        return lhs.second->GetNumber() < rhs.second->GetNumber();
     }
 
 };

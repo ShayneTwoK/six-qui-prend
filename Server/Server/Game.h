@@ -35,19 +35,19 @@ public:
     void StartRound();
 
     Board GetBoard();
-    Player * GetPlayerWithLessPoints();
+    Player* GetPlayerWithLessPoints();
     std::vector<std::pair<int, Player*>> GetPlayers();
     void EndRound();
     Deck<CardModel> createDeck();
     GameStatus GetGameStatus();
 private:
 
-    std::vector<std::pair<int,Player*>> _players;
+    std::vector<std::pair<int, Player*>> _players;
     Deck<CardModel> _cards;
-   int _cardNumber = 104;
-   Round _currentRound;
-   Board _board;
-   GameStatus _status;
-   std::vector<std::pair<int, CardModel>> _chosenCards;
-   bool pointComparator(const std::pair<int, Player*> lhs, const std::pair<int, Player*> rhs);
+    int _cardNumber = 104;
+    Round _currentRound;
+    Board _board;
+    GameStatus _status;
+    std::vector<std::pair<int, CardModel>> _chosenCards;
+    bool pointComparator(const std::pair<int, Player*> lhs, const std::pair<int, Player*> rhs);
 };

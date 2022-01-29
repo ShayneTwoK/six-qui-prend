@@ -4,7 +4,6 @@
 #include <sstream>
 #include <iostream>
 #include "GameEventHandler.h"
-#include "EventCallback.h"
 #include "EventType.h"
 #include "RequestBody.h"
 
@@ -36,7 +35,7 @@ void ConnectionHandler::onSocketReadable(const Poco::AutoPtr<ReadableNotificatio
 	{
 		this->readBytes(n);
 	}
-	else  {
+	else {
 		delete this;
 	}
 }
@@ -75,7 +74,7 @@ void ConnectionHandler::readBytes(int size)
 
 	std::string key = j["key"];
 	std::string body = j["body"];
-	
+
 	RequestBody request(key, body, _socket.impl()->sockfd());
 	GameEventHandler::get_instance()->handleEvent(&request);
 }

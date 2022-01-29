@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Deck.h"
-Player::Player(Poco::Net::SocketReactor& reactor, Poco::Net::StreamSocket& socket):_reactor(reactor), _socket(socket)
+#include <iostream>
+Player::Player(Poco::Net::SocketReactor& reactor, Poco::Net::StreamSocket& socket) :_reactor(reactor), _socket(socket)
 {
 }
 
