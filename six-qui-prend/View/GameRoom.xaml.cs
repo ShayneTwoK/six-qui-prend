@@ -21,6 +21,7 @@ namespace six_qui_prend
 
         private Socket _socket;
         private Card? _selectedCard;
+
         public GameRoom(Socket socket)
         {
             _socket = socket;
@@ -77,5 +78,17 @@ namespace six_qui_prend
             }
            
         }
+
+        private void btn_confirm_party_Click(object sender, RoutedEventArgs e)
+        {
+            // Check si le btn commencer est activé (il y a min 2 joueur)
+            if (btn_confirm_party.IsEnabled == true)
+            {
+                // Lance la partie
+                Trace.WriteLine("Lance la partie");
+            }
+
+        }
+
     }
 }

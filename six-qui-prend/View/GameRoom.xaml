@@ -35,6 +35,7 @@
         </Button>
 
         <ItemsControl x:Name="list_players" Margin="0,30,20,0" d:ItemsSource="{d:SampleData ItemCount=10}" ItemsSource="{Binding Players}" Width="250" Height="650" HorizontalAlignment="Right" VerticalAlignment="Top" >
+            
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Vertical" Height="650" />
@@ -56,24 +57,24 @@
                     <StackPanel HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
-            
+
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                        <ItemsControl ItemsSource="{Binding}">
-                            
+                    <ItemsControl ItemsSource="{Binding}">
+
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Horizontal"/>
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
-                            
+
                         <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <view:ViewCardPlayer/>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    
+                            <DataTemplate>
+                                <view:ViewCardPlayer/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
@@ -93,6 +94,18 @@
         </ListView>
 
         <Button x:Name="btn_confirm_card" Content="CONFIRMER" Margin="0,0,32,68" HorizontalAlignment="Right" Width="115" IsEnabled="False" Click="btn_confirm_card_Click" Height="32" VerticalAlignment="Bottom"/>
+        <Button x:Name="btn_confirm_party" Content="COMMENCER" Margin="0,0,32,151" VerticalAlignment="Bottom" IsEnabled="False" Click="btn_confirm_party_Click" FontSize="12" Background="#FF3AB73D" BorderBrush="#FF91B73A"  HorizontalAlignment="Right" Width="113">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Items.Count, ElementName=list_players}" Value="2">
+                            <Setter Property="IsEnabled" Value="True"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
 
     </Grid>
 </Window>
