@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using six_qui_prend.Models;
+﻿using six_qui_prend.Models;
 using six_qui_prend.ViewModel;
 using System;
 using System.Diagnostics;
@@ -21,24 +20,40 @@ namespace six_qui_prend
 
         private Socket _socket;
         private Card? _selectedCard;
+        private string? buffer;
+        private string? request;
+        private bool _host;
+        private Message? messageSent;
+        private Message? messageReceive;
+        private bool next = false;
 
-        public GameRoom(Socket socket)
+        public GameRoom(Socket socket, bool host)
         {
             _socket = socket;
+            _host = host;
+
             InitializeComponent();
 
             GameBoardViewModel gbvm = new GameBoardViewModel();
-            //gbvm.connectServer();
 
-            this.DataContext = gbvm;
+            DataContext = gbvm;
             
         }
 
         private void Button_Click_Back(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            ServerCommunication.Send(_socket, "DISCONNECT");
+            Hide();
+
+            messageSent = new Message
+            {
+                key = "DISCONNECT",
+                body = ""
+            };
+            request = JsonSerializer.Serialize(messageSent);
+            ServerCommunication.Send(_socket, request);
+
             ServerCommunication.CloseConnection(_socket);
+
             MainWindow mw = new MainWindow();
             mw.Show();
 
@@ -46,9 +61,18 @@ namespace six_qui_prend
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            this.Hide();
-            ServerCommunication.Send(_socket, "DISCONNECT");
+            Hide();
+
+            messageSent = new Message
+            {
+                key = "DISCONNECT",
+                body = ""
+            };
+            request = JsonSerializer.Serialize(messageSent);
+            ServerCommunication.Send(_socket, request);
+
             ServerCommunication.CloseConnection(_socket);
+
             MainWindow mw = new MainWindow();
             mw.Show();
         }
@@ -62,7 +86,7 @@ namespace six_qui_prend
             
         }
 
-        private async void btn_confirm_card_Click(object sender, RoutedEventArgs e)
+        private void btn_confirm_card_Click(object sender, RoutedEventArgs e)
         {
             
             // A FAIRE : Check si le joueur à choisit une colonne ou placer sa carte
@@ -71,10 +95,39 @@ namespace six_qui_prend
             if(btn_confirm_card.IsEnabled == true)
             {
                 Card? selectedCard = (Card?)list_card_hand.SelectedItems[0];
-                // ENVOI JSON AU SERVEUR
-                ServerCommunication.Send(_socket, "{'key':'SELECT_CARD', 'body':'{'idCard':1}', 'username':'pseudo'}");
+                messageSent = new Message
+                {
+                    key = "CHOOSECARD",
+                    body = JsonSerializer.Serialize(selectedCard)
+                };
 
-                Trace.WriteLine(System.Text.Json.JsonSerializer.Serialize(selectedCard));
+                request = JsonSerializer.Serialize(messageSent);
+
+                // ENVOI JSON AU SERVEUR
+                ServerCommunication.Send(_socket, request);
+
+                //ATTENTE DE LA REPONSE DU SERVEUR
+                /*while (!next)
+                {
+                    while (string.IsNullOrEmpty(buffer))
+                    {
+                        buffer = ServerCommunication.Receive(_socket);
+                    }
+                    Trace.WriteLine("message : " + buffer);
+
+                    messageReceive = JsonSerializer.Deserialize<Message>(buffer);
+
+                    if (messageReceive?.key == "USERID")
+                    {
+                        next = true;
+                    }
+
+                    buffer = "";
+                }
+                Trace.WriteLine("message : " + buffer);
+
+                Trace.WriteLine(JsonSerializer.Serialize(selectedCard));
+                buffer = "";*/
             }
            
         }
