@@ -35,7 +35,7 @@ public:
 
     // Operator -- overload to remove a card from the top of the deck and return
     // it
-    T operator--(){
+    T operator--() {
         T val = elemList.back();
         elemList.pop_back();
         return val;

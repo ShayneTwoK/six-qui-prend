@@ -80,5 +80,5 @@ private:
     };
     /// Received Data Buffer
     char in_buffer[BUFFER_SIZE];
-    
+
 };

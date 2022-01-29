@@ -16,6 +16,3 @@ private:
     int _points;
     int _num;
 };
-
-
-

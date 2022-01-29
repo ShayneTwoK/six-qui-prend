@@ -17,7 +17,7 @@ public:
 
     void SetColumn(int num, Deck<CardModel> cards) {
         Column c = findColumn(num);
-        c.SetCards(cards);       
+        c.SetCards(cards);
     }
     void AddColumn(Column column) {
         columns += column;

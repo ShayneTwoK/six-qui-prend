@@ -4,9 +4,7 @@
 class Column {
 public:
 
-    Column(int num):_num(num) {};
-    //bool Deserialize(const rapidjson::Value& obj);
-    //bool Serialize(rapidjson::Writer<rapidjson::StringBuffer>* writer) const;
+    Column(int num) :_num(num) {};
 
     Deck<CardModel> GetCards() {
         return _cards;
