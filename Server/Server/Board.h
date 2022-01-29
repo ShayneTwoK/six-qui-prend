@@ -15,6 +15,9 @@ public:
         }
     }
 
+    Deck<Column> GetColumns() {
+        return columns;
+    }
     void SetColumn(int num, Deck<CardModel> cards) {
         Column c = findColumn(num);
         c.SetCards(cards);
