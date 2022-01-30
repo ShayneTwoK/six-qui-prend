@@ -50,7 +50,7 @@
         </ItemsControl>
 
 
-        <ItemsControl x:Name="list_lines_card" Margin="119,69,319,0" d:ItemsSource="{d:SampleData ItemCount=6}" ItemsSource="{Binding Lines}" Height="560" VerticalAlignment="Top" >
+        <ItemsControl x:Name="list_lines_card" Margin="119,69,319,0" d:ItemsSource="{d:SampleData ItemCount=6}" ItemsSource="{Binding Lines}" Height="650" VerticalAlignment="Top" >
 
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>

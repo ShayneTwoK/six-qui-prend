@@ -16,6 +16,6 @@
         </Grid.ColumnDefinitions>
         
         <Image x:Name="avatar" Source="/images/bleu.png" Grid.Row="0" />
-        <TextBlock Grid.Row="1" Text="{Binding name}" TextAlignment="Center" FontSize="15" />
+        <TextBlock Grid.Row="1" Text="{Binding username}" TextAlignment="Center" FontSize="15" />
     </Grid>
 </UserControl>

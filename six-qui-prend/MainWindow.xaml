@@ -36,7 +36,7 @@
             <TextBlock Text="REJOINDRE UNE SALLE" />
         </Button>
 
-        <TextBox Margin="444,0,436,68" TextWrapping="Wrap" Text="Pseudo" FontSize="16" MaxWidth="120" HorizontalContentAlignment="Left" MaxHeight="30.04" Height="46" VerticalAlignment="Bottom" Cursor="IBeam"/>
+        <TextBox Margin="444,0,436,68" x:Name="username" TextWrapping="Wrap" Text="" FontSize="16" MaxWidth="120" HorizontalContentAlignment="Left" MaxHeight="30.04" Height="46" VerticalAlignment="Bottom" Cursor="IBeam"/>
 
         <Image Margin="166,108,162,235" Source="/images/textsixquiprend.png" RenderTransformOrigin="0.491,0.708" MaxWidth="671" MaxHeight="257">
             <Image.RenderTransform>
