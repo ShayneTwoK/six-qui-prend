@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using six_qui_prend.Models;
+﻿using six_qui_prend.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,6 +24,7 @@ namespace six_qui_prend
     public partial class MainWindow : Window
     {
         Card card = new Card();
+        //private string username { get; set; } = 
 
         public MainWindow()
         {
@@ -33,30 +33,63 @@ namespace six_qui_prend
 
         private void Button_Click_Create(object sender, RoutedEventArgs e)
         {
+            bool next = false;
             var s = ServerCommunication.OpenConnection("127.0.0.1", 3490);
             if (s == null)
                 return;
             Console.WriteLine("Connection to server opened successfully !");
 
+            Player player = new Player
+            {
+                username = username.Text
+            };
+
+            string body = JsonSerializer.Serialize(player);
+
+            //Trace.WriteLine("body : " + body);
+
+            Message messageSent = new Message
+            {
+                key = "PSEUDO",
+                body = body
+            };
+            string request = JsonSerializer.Serialize(messageSent);
+
+            //Trace.WriteLine("request : " + request);
+
             //string buffer;// Envoi du buffer au serveur
-            ServerCommunication.Send(s, "{'key':'CREATE', 'body':'', 'username':'pseudo'}");
+            ServerCommunication.Send(s, "PSEUDO");
 
             // Lecture de la réponse du serveur
             //buffer = ServerCommunication.Receive(s);
 
             // Traitement du résultat lu sur la socket
-            /*if (buffer == "CONNECTION_CLOSED")
+
+            string? buffer = "";
+            while(!next)
             {
-                Console.WriteLine("Server has closed connection !");
+                while (string.IsNullOrEmpty(buffer))
+                {
+                    buffer = ServerCommunication.Receive(s);
+                }
+                Trace.WriteLine("message : " + buffer);
+
+                Message? messageReceived = new Message();
+
+                messageReceived = JsonSerializer.Deserialize<Message>(buffer);
+
+                if (messageReceived?.key == "USERID")
+                {
+                    next = true;
+                }
+
+                buffer = "";
             }
-            else
-            {
-                // Affichage du message
-                Console.WriteLine(buffer);
-            }*/
+
+            
 
             this.Hide();
-            GameRoom gm = new GameRoom(s);
+            GameRoom gm = new GameRoom(s, true);
             gm.Show();
 
             //ServerCommunication.CloseConnection(s);
