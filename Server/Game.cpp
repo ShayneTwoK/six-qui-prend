@@ -17,6 +17,24 @@ Board Game::GetBoard()
 	return Board();
 }
 
+Round Game::GetCurrentRound()
+{
+	return _currentRound;
+}
+
+std::vector<int> Game::GetPlayableColumns(int handle)
+{
+	std::vector<int> columnsNumber;
+	std::pair<Player*, CardModel*> pair = _currentRound.getCurrentPlayerTurn();
+	for (auto column : _board.GetColumns().GetList()) {
+		CardModel lastCard = column.GetCards().GetList().back();
+		if (pair.second->GetNumber() < lastCard.GetNumber()) {
+			columnsNumber.push_back(column.GetNumber());
+		}
+	}
+	return columnsNumber;
+}
+
 Player* Game::GetPlayerWithLessPoints()
 {
 	return 0;
@@ -29,6 +47,7 @@ std::vector<std::pair<int, Player*>> Game::GetPlayers()
 
 void Game::EndRound()
 {
+	--_currentRound;
 }
 
 /**
@@ -73,6 +92,7 @@ void Game::StartGame()
 	DistributeCardsToPlayers();
 }
 
+
 Deck<CardModel> Game::DistributeCardsToPlayers()
 {
 	for (auto& player : _players) {
@@ -113,12 +133,20 @@ void Game::StartRound()
 
 		playersQueue.push_back(std::make_pair(player, c));
 	}
-	//Round round(playersQueue);
-	//_currentRound = round;
+	Round round(playersQueue);
+	_currentRound = round;
 
 	//if (_currentRound.GetQueueSize() <= 0) {
 	//	_status = TURN;
 	//}
+}
+
+bool Game::HasEveryOneChoseCard()
+{
+	if (_chosenCards.size() == _players.size()) {
+		return true;
+	}
+	return false;
 }
 
 Player* Game::GetPlayer(int handle)

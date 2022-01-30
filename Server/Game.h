@@ -33,8 +33,10 @@ public:
     void ChooseCard(int handle, int num);
 
     void StartRound();
-
+    bool HasEveryOneChoseCard();
     Board GetBoard();
+    Round GetCurrentRound();
+    std::vector<int> GetPlayableColumns(int handle);
     Player* GetPlayerWithLessPoints();
     std::vector<std::pair<int, Player*>> GetPlayers();
     void EndRound();

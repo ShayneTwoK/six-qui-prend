@@ -29,7 +29,7 @@ public:
     }
     // Operator += overload to add a card to the bottom of the deck
     Deck& operator+=(const T& e) {
-        elemList.insert(elemList.begin(), e);
+        elemList.push_back(e);
         return *this;
     }
 
