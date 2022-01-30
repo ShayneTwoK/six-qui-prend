@@ -38,8 +38,9 @@ public:
     Round GetCurrentRound();
     std::vector<int> GetPlayableColumns(int handle);
     Player* GetPlayerWithLessPoints();
+    void PlayCard(int);
     std::vector<std::pair<int, Player*>> GetPlayers();
-    void EndRound();
+    void EndCurrentPlayerTurn();
     Deck<CardModel> createDeck();
     GameStatus GetGameStatus();
 private:
@@ -47,9 +48,9 @@ private:
     std::vector<std::pair<int, Player*>> _players;
     Deck<CardModel> _cards;
     int _cardNumber = 104;
+    int roundNumber = 0;
     Round _currentRound;
     Board _board;
     GameStatus _status;
     std::vector<std::pair<int, CardModel>> _chosenCards;
-    bool pointComparator(const std::pair<int, Player*> lhs, const std::pair<int, Player*> rhs);
 };

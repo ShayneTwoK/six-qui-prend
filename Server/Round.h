@@ -5,10 +5,13 @@ class Round {
     std::vector<std::pair<Player*, CardModel*>> playersQueue;
 
 public:
-    Round() {};
-    Round(std::vector<std::pair<Player*, CardModel*>> queue) {
+    Round() {
+
+    }
+    Round(int roundNumber,std::vector<std::pair<Player*, CardModel*>> queue) {
+        _round = roundNumber;
         playersQueue = queue;
-        /*  sort(playersQueue.begin(), playersQueue.end(), &cardComparator);*/
+          std::sort(playersQueue.begin(), playersQueue.end(), [](const std::pair<Player*, CardModel*>& x, const std::pair<Player*, CardModel*>& y) { return x.second->GetNumber() < y.second->GetNumber(); });
     }
 
     ~Round()
@@ -18,7 +21,9 @@ public:
     int GetQueueSize() {
         return playersQueue.size();
     }
-
+    int GetRoundNumber() {
+        return _round;
+    }
     
     std::pair<Player*, CardModel*> getCurrentPlayerTurn() {
         return playersQueue.back();
@@ -33,8 +38,5 @@ public:
     }
 private:
     //define the function:
-    bool cardComparator(std::pair<Player*, CardModel*> lhs, std::pair<Player*, CardModel*> rhs) {
-        return lhs.second->GetNumber() < rhs.second->GetNumber();
-    }
-
+    int _round;
 };

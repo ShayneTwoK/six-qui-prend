@@ -7,10 +7,10 @@ class Board {
 public:
     Board() {}
 
-    Column findColumn(int num) {
+    Column* findColumn(int num) {
         for (int i = 0; i < columns.GetList().size(); i++) {
             if (columns.GetList()[i].GetNumber() == num) {
-                return columns.GetList()[i];
+                return &columns.GetList()[i];
             }
         }
     }
@@ -19,8 +19,8 @@ public:
         return columns;
     }
     void SetColumn(int num, Deck<CardModel> cards) {
-        Column c = findColumn(num);
-        c.SetCards(cards);
+        Column* c = findColumn(num);
+        c->SetCards(cards);
     }
     void AddColumn(Column column) {
         columns += column;

@@ -11,7 +11,6 @@ Player::~Player()
 
 void Player::SetPseudo(std::string psd)
 {
-	std::cout << "Set mon pseudo à" + psd;
 	_pseudo = psd;
 }
 
@@ -23,6 +22,11 @@ int Player::GetHandle()
 int Player::GetPoints()
 {
 	return _points;
+}
+
+void Player::AddPoints(int number)
+{
+	_points += number;
 }
 
 std::string Player::GetPseudo()

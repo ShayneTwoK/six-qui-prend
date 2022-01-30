@@ -25,7 +25,9 @@ protected:
 
     int main(const std::vector<std::string>& args) {
 
-
+        std::cout << "************************************************************";
+        std::cout << "6 qui prends toutes tes vaches";
+        std::cout << "************************************************************";
         // Server Socket
         Poco::Net::ServerSocket svs(3490);
         // Reactor-Notifier

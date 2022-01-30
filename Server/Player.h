@@ -25,7 +25,7 @@ public:
 
     int GetHandle();
     int GetPoints();
-
+    void AddPoints(int number);
     std::string GetPseudo();
     Deck<CardModel> GetHand();
     void SetHand(Deck<CardModel>);

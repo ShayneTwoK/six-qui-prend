@@ -37,7 +37,22 @@ std::vector<int> Game::GetPlayableColumns(int handle)
 
 Player* Game::GetPlayerWithLessPoints()
 {
-	return 0;
+	std::sort(_players.begin(), _players.end(), [](const std::pair<int, Player*>& x, const std::pair<int, Player*>& y) { return x.second->GetPoints() < y.second->GetPoints(); });
+	return _players.at(0).second;
+}
+
+void Game::PlayCard(int columnNumber)
+{
+	std::pair<Player*, CardModel*> pair = _currentRound.getCurrentPlayerTurn();
+	Column* column = _board.findColumn(columnNumber);
+	CardModel lastColumnCard = column->GetCards().GetList().back();
+	int columnSize = column->GetCardsNumber();
+	if (columnSize >= 5 || lastColumnCard.GetNumber() > pair.second->GetNumber()) {
+		int columnPoints = column->GetPoints();
+		column->Reset();
+		pair.first->AddPoints(columnPoints);
+	}
+	column->AddCard(*pair.second);
 }
 
 std::vector<std::pair<int, Player*>> Game::GetPlayers()
@@ -45,7 +60,7 @@ std::vector<std::pair<int, Player*>> Game::GetPlayers()
 	return _players;
 }
 
-void Game::EndRound()
+void Game::EndCurrentPlayerTurn()
 {
 	--_currentRound;
 }
@@ -69,11 +84,6 @@ Deck<CardModel> Game::createDeck() {
 GameStatus Game::GetGameStatus()
 {
 	return _status;
-}
-
-bool Game::pointComparator(const std::pair<int, Player*> lhs, const std::pair<int, Player*> rhs)
-{
-	return lhs.second->GetPoints() < rhs.second->GetPoints();
 }
 
 void Game::StartGame()
@@ -125,6 +135,7 @@ void Game::ChooseCard(int handle, int num)
 
 void Game::StartRound()
 {
+	roundNumber++;
 	std::vector<std::pair<Player*, CardModel*>> playersQueue;
 	for (auto& card : _chosenCards)
 	{
@@ -133,14 +144,11 @@ void Game::StartRound()
 
 		playersQueue.push_back(std::make_pair(player, c));
 	}
-	Round round(playersQueue);
+	_chosenCards.clear();
+	Round round(roundNumber,playersQueue);
 	_currentRound = round;
 
-	//if (_currentRound.GetQueueSize() <= 0) {
-	//	_status = TURN;
-	//}
 }
-
 bool Game::HasEveryOneChoseCard()
 {
 	if (_chosenCards.size() == _players.size()) {

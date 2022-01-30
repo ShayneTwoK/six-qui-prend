@@ -31,12 +31,16 @@ void GameEventHandler::handleEvent(RequestBody* request)
 	case CHOOSECARD:
 		handleChoice(request);
 		break;
+	case PLAY:
+		handlePlayCard(request);
+		break;
 	}
 }
 
 void GameEventHandler::handleNewPlayer(RequestBody* request)
 {
-	std::string pseudo = request->GetBody();
+	json playerUsername = json::parse(request->GetBody());
+	std::string pseudo = playerUsername["username"];
 	Player* player = _game->GetPlayer(request->GetHandle());
 	player->SetPseudo(pseudo);
 	json j;
@@ -52,8 +56,19 @@ void GameEventHandler::handleNewPlayer(RequestBody* request)
 
 }
 
-void GameEventHandler::handleEndGame(RequestBody* request)
+void GameEventHandler::handleEndGame()
 {
+	Player* winner = _game->GetPlayerWithLessPoints();
+
+	json winnerJson;
+	json player;
+	player["pseudo"] = winner->GetPseudo();
+	player["points"] = winner->GetPoints();
+	winnerJson["winner"] = player;
+	RequestBody body("ENDGAME", player.dump(), winner->GetHandle());
+	sentToAllPlayer(&body);
+	_game = new Game();
+
 }
 
 void GameEventHandler::handleChoice(RequestBody* request)
@@ -112,6 +127,43 @@ void GameEventHandler::handleStartTurn()
 
 void GameEventHandler::handleEndTurn()
 {
+	_game->EndCurrentPlayerTurn();
+	int roundNumber = _game->GetCurrentRound().GetRoundNumber();
+	if (_game->GetCurrentRound().GetQueueSize() == 0) {
+		json state;
+		state["state"] = "CHOOSING";
+		RequestBody body("CHANGESTATE", state.dump(), 0);
+		sentToAllPlayer(&body);
+	}
+	else if(roundNumber>=10) {
+		handleEndGame();
+	}
+	else {
+		handleStartTurn();
+	}
+}
+
+void GameEventHandler::handlePlayCard(RequestBody* request)
+{
+	std::string body = request->GetBody();
+	Player* player = _game->GetPlayer(request->GetHandle());
+	json bodyjson = json::parse(request->GetBody());
+	int columnNumber = bodyjson["column"];
+	_game->PlayCard(columnNumber);
+	
+	json setColumn;
+	setColumn["column"] = _game->GetBoard().findColumn(columnNumber)->GetJson();
+	RequestBody requestBody("SETCOLUMNS", setColumn.dump(), request->GetHandle());
+	sentToAllPlayer(&requestBody);
+
+	json setPoints;
+	setPoints["points"] = player->GetPoints();
+	RequestBody sendPointsRequest("SETPOINTS ", setPoints.dump(), request->GetHandle());
+
+	sendToPlayer(request->GetHandle(), &requestBody);
+
+	handleEndTurn();
+	
 }
 
 void GameEventHandler::handleInitColumns()

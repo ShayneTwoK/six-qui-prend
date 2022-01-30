@@ -19,6 +19,20 @@ public:
     void AddCard(CardModel card) {
         _cards += card;
     }
+    int GetCardsNumber() {
+        return _cards.GetList().size();
+    }
+    void Reset() {
+        _cards.GetList().clear();
+    }
+    int GetPoints() {
+        int points = 0;
+        
+        for (auto card : _cards.GetList()) {
+            points += card.GetPoints();
+        }
+        return points;
+    }
 
 
     int GetNumber() {

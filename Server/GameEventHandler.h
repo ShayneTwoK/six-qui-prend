@@ -19,11 +19,12 @@ public:
 
     void handleEvent(RequestBody* request);
     void handleNewPlayer(RequestBody* request);
-    void handleEndGame(RequestBody* request);
+    void handleEndGame();
     void handleChoice(RequestBody* request);
     void handleStartGame();
     void handleStartTurn();
     void handleEndTurn();
+    void handlePlayCard(RequestBody* request);
     void handleInitColumns();
     void sendToPlayer(int handle, RequestBody* request);
     void sentToAllPlayer(RequestBody* request);
