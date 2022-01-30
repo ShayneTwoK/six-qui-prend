@@ -1,3 +1,0 @@
-C:/Users/Adeline/Documents/Cours/C++/six-qui-prend/Server/Server/CMakeFiles/server-cmake.dir
-C:/Users/Adeline/Documents/Cours/C++/six-qui-prend/Server/Server/CMakeFiles/ALL_BUILD.dir
-C:/Users/Adeline/Documents/Cours/C++/six-qui-prend/Server/Server/CMakeFiles/ZERO_CHECK.dir

@@ -29,7 +29,6 @@ namespace six_qui_prend
         public MainWindow()
         {
             InitializeComponent();
-            Trace.WriteLine(card.jsonSerializeCards());
         }
 
         private void Button_Click_Create(object sender, RoutedEventArgs e)
