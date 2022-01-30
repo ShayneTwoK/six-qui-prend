@@ -2,6 +2,14 @@
 
 Voici notre projet d'étude pour la matière DEV LOGICEL AVANCÉ, le jeu du carte du 6 qui prend !
 
+Nous avons la possibilité de ne choisir qu'une salle ou jouer avec un maximum de 10 Joueurs.
+
+Notre jeu reprend le même système de jeu que le 6 qui prend avec un jeu de 104 cartes avec des symboles de tête de boeuf allant de 1 à 7.
+
+10 cartes par joueur, on choisit une carte, un ordre de passage est défini, on choisit sa rangée,
+on comptabilise les points si une rangée est terminé, on place la première carte au début de la rangée terminé,
+le jeu continue jusqu'a ce que les joueurs n'ont plus de cartes.
+
 Nous avons implémenter :
 
 - Renseignez un pseudo
@@ -16,12 +24,6 @@ Nous avons implémenter :
 - Comptage des points de chaque joueur
 - Rangée de carte qui atteint 6 cartes
 - Tour terminé
-
-Nous avons la possibilité de ne choisir qu'une salle ou jouer avec un maximum de 10 Joueurs.
-Notre jeu reprend le même système de jeu que le 6 qui prend.
-10 cartes par joueur, on choisit une carte, un ordre de passage est défini, on choisit sa rangée,
-on comptabilise les points si une rangée est terminé, on place la première carte au début de la rangée terminé,
-le jeu continue jusqu'a ce que les joueurs n'ont plus de cartes.
 
 ### Documentation technique
 
