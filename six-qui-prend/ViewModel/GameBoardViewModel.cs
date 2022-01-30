@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using six_qui_prend.Models;
 using System;
 using System.Collections.Generic;
@@ -15,9 +16,9 @@ namespace six_qui_prend.ViewModel
     public class GameBoardViewModel : ViewModelBase
     {
         private List<Card> hand;
-        private List<Player> players;
+        private ObservableCollection<Player> players;
         private ObservableCollection<List<Card>> lines;
-
+        private Socket socket;
 
         string handJson = @"[{'idCard':1,'nbBeefHead':1},{'idCard':2,'nbBeefHead':1},{'idCard':3,'nbBeefHead':1},{'idCard':4,'nbBeefHead':1},{'idCard':5,'nbBeefHead':2},{'idCard':6,'nbBeefHead':1},{'idCard':7,'nbBeefHead':1},{'idCard':8,'nbBeefHead':1},{'idCard':9,'nbBeefHead':1},{'idCard':10,'nbBeefHead':3}]";
         string playersJson = @"[{'idPlayer':1,'name':'uno'},{'idPlayer':2,'name':'dos'},{'idPlayer':3,'name':'tres'},{'idPlayer':4,'name':'quatro'},{'idPlayer':5,'name':'cinco'},{'idPlayer':6,'name':'seis'},{'idPlayer':7,'name':'siete'},{'idPlayer':8,'name':'ocho'},{'idPlayer':9,'name':'nueve'},{'idPlayer':10,'name':'diez'}]";
@@ -34,7 +35,7 @@ namespace six_qui_prend.ViewModel
             }
         }
 
-        public List<Player> Players
+        public ObservableCollection<Player> Players
         {
             get { return players; }
             set
@@ -54,12 +55,18 @@ namespace six_qui_prend.ViewModel
             }
         }
 
-        public GameBoardViewModel()
+        //public enum EventType
+        //{
+        //    PSEUDO = "PSEUDO",
+        //}
+        public GameBoardViewModel(Socket socket)
         {
             this.selectedCardhand = selectedCardhand;
             this.hand = new List<Card>();
-            this.players = new List<Player>();
+            this.players = new ObservableCollection<Player>();
             this.lines = new ObservableCollection<List<Card>>();
+            this.socket = socket;
+
 
             Thread t = new Thread(new ThreadStart(waitDataFromSocket));
             t.Start();
@@ -69,30 +76,59 @@ namespace six_qui_prend.ViewModel
         {
 
             List<Card>? hand = JsonConvert.DeserializeObject<List<Card>>(handJson);
-            List<Player>? players = JsonConvert.DeserializeObject<List<Player>>(playersJson);
             ObservableCollection<List<Card>>? lines = JsonConvert.DeserializeObject<ObservableCollection<List<Card>>>(linesJson);
+            Hand = hand;
+            Players = players;
+            Lines = lines;
 
-            if (hand != null && players != null && lines != null)
+            while (true)
             {
-                Console.WriteLine("DATA HERE");
-                Hand = hand;
-                Players = players;
-                Lines = lines;
+                string reponse = ServerCommunication.Receive(socket);
+
+
+                JObject messageReceived = JObject.Parse(reponse); ;
+
+                
+                string key = messageReceived.GetValue("key").ToString();
+                JToken body = messageReceived.GetValue("body");
+                App.Current.Dispatcher.Invoke( new Action(() => handleEvent(key, body)));
             }
-            else if (hand != null && players == null)
+
+        }
+
+        public void handleEvent(string key, JToken body)
+        {
+            switch (key)
             {
-                Console.WriteLine("DATA HAND");
-                Hand = hand;
-            }
-            else if (hand == null && players != null)
+                case "NEWPLAYER":
+                    handleNewPlayer(body);
+                break;
+                case "INITCOLUMNS":
+                    handleInitColumns(body);
+                   break;
+
+            } 
+        }
+
+        public void handleNewPlayer(JToken body)
+        {
+            JArray receivedPlayers = body.Value<JArray>("players");
+            List<Player> players = new List<Player>();
+            foreach (var player in receivedPlayers)
             {
-                Console.WriteLine("DATA PLAYERS");
-                Players = players;
+                Player p = new Player();
+                p.username = player.Value<string>("pseudo");
+                players.Add(p);
             }
-            else
+            Players.Clear();
+            foreach (Player player in players)
             {
-                Console.WriteLine("DATA NULL");
+                Players.Add(player);
             }
+        }
+
+        public void handleInitColumns(JToken body)
+        {
 
         }
 
@@ -120,6 +156,15 @@ namespace six_qui_prend.ViewModel
             {
                 System.Threading.Thread.Sleep(2000);
                 Console.Write("Error : " + e1);
+            }
+        }
+
+        public void setPlayers(List<Player> playerList)
+        {
+  
+            foreach(Player player in playerList)
+            {
+                players.Add(player);
             }
         }
 

@@ -185,19 +185,25 @@ Game* GameEventHandler::GetGame()
 
 void GameEventHandler::sendToPlayer(int handle, RequestBody* request)
 {
-	json j = request->GetJson();
-	const char* message = j.dump().c_str();
+	json r;
+	r["key"] = request->GetKey();
+	r["body"] = json::parse(request->GetBody());
+	std::string stringMessage = r.dump();
+	const char* message = stringMessage.c_str();
 	Player* player = _game->GetPlayer(handle);
-	player->_socket.sendBytes(message, sizeof message);
+	player->_socket.sendBytes(message, stringMessage.size());
 }
 
 void GameEventHandler::sentToAllPlayer(RequestBody* request)
 {
 	for (auto& player : _game->GetPlayers()) {
-		json j = request->GetJson();
-		const char* message = j.dump().c_str();
+		json r;
+		r["key"] = request->GetKey();
+		r["body"] = json::parse(request->GetBody());
+		std::string stringMessage = r.dump();
+		const char* message = stringMessage.c_str();
 		Player* p = player.second;
-		p->_socket.sendBytes(message, sizeof message);
+		p->_socket.sendBytes(message, stringMessage.size());
 
 	}
 }

@@ -27,14 +27,12 @@ namespace six_qui_prend
         private Message? messageReceive;
         private bool next = false;
 
-        public GameRoom(Socket socket, bool host)
+        public GameRoom(Socket socket, bool host, GameBoardViewModel gbvm)
         {
             _socket = socket;
             _host = host;
 
             InitializeComponent();
-
-            GameBoardViewModel gbvm = new GameBoardViewModel();
 
             DataContext = gbvm;
             

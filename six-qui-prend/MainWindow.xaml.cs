@@ -1,4 +1,5 @@
 ﻿using six_qui_prend.Models;
+using six_qui_prend.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -49,15 +50,30 @@ namespace six_qui_prend
             // Envoi du buffer au serveur
             ServerCommunication.Send(s, request);
 
-            // Lecture de la réponse du serveur
-            Task<string> buffer = ServerCommunication.BeginReceiveAsync(s);
+            string str = ServerCommunication.Receive(s);
+
+
+            JsonElement messageReceived = JsonSerializer.Deserialize<JsonElement>(str);
+            JsonElement body = messageReceived.GetProperty("body");
+            var receivedPlayers = body.GetProperty("players").EnumerateArray();
+            List<Player> players = new List<Player>();
+            while (receivedPlayers.MoveNext())
+            {
+                var p = receivedPlayers.Current;
+                Player player1 = new Player();
+                player1.username = p.GetProperty("pseudo").GetString();
+                players.Add(player1);
+            }
+            //List<Player> players = messageReceived["body"]["players"];
+            GameBoardViewModel gameBoardViewModel = new GameBoardViewModel(s);
+            gameBoardViewModel.setPlayers(players);
 
             // Traitement du résultat lu sur la socket
-           
-            
+
+
 
             this.Hide();
-            GameRoom gm = new GameRoom(s, true);
+            GameRoom gm = new GameRoom(s, true, gameBoardViewModel);
             gm.Show();
 
             //ServerCommunication.CloseConnection(s);
