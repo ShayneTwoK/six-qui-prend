@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -25,7 +26,7 @@ namespace six_qui_prend.Models
             }
             catch (SocketException e)
             {
-                Console.WriteLine("Error while retreiving server ip from received server address : " + e.Message);
+                Trace.WriteLine("Error while retreiving server ip from received server address : " + e.Message);
             }
 
             return "";
@@ -45,7 +46,7 @@ namespace six_qui_prend.Models
             }
             catch (SocketException e)
             {
-                Console.WriteLine("Error while openning connection to server : " + e.Message);
+                Trace.WriteLine("Error while openning connection to server : " + e.Message);
             }
             return null;
         }
@@ -65,7 +66,7 @@ namespace six_qui_prend.Models
                 }
                 catch (SocketException e)
                 {
-                    Console.WriteLine("Error while closing socket : " + e.Message);
+                    Trace.WriteLine("Error while closing socket : " + e.Message);
                 }
             }
             return false;
@@ -77,7 +78,7 @@ namespace six_qui_prend.Models
             {
                 //La connexion a été clôturée par le serveur ou bien un problème
                 //réseau est apparu
-                Console.WriteLine("Connection to server has been closed.");
+                Trace.WriteLine("Connection to server has been closed.");
                 return null;
             }
 
@@ -100,7 +101,7 @@ namespace six_qui_prend.Models
                 }
                 catch (SocketException e)
                 {
-                    Console.WriteLine("Error while receiving data on socket : " + e.Message);
+                    Trace.WriteLine("Error while receiving data on socket : " + e.Message);
                 }
             }
             return messageReceived;
@@ -115,7 +116,7 @@ namespace six_qui_prend.Models
             {
                 //La connexion a été clôturée par le serveur ou bien un problème
                 //réseau est apparu
-                Console.WriteLine("Connection to server has been closed.");
+                Trace.WriteLine("Connection to server has been closed.");
                 return;
             }
 
@@ -127,7 +128,7 @@ namespace six_qui_prend.Models
             }
             catch (SocketException e)
             {
-                Console.WriteLine("Error while sending data on socket : " + e.Message);
+                Trace.WriteLine("Error while sending data on socket : " + e.Message);
             }
         }
 
@@ -138,8 +139,8 @@ namespace six_qui_prend.Models
             {
                 //La connexion a été clôturée par le serveur ou bien un problème
                 //réseau est apparu
-                Console.WriteLine("");
-                Console.WriteLine("Connection to server has been closed.");
+                Trace.WriteLine("");
+                Trace.WriteLine("Connection to server has been closed.");
                 return "false";
             }
 
@@ -166,8 +167,8 @@ namespace six_qui_prend.Models
                     }
                     catch (SocketException e)
                     {
-                        Console.WriteLine("");
-                        Console.WriteLine("Error while starting receiving data on socket : " + e.Message);
+                        Trace.WriteLine("");
+                        Trace.WriteLine("Error while starting receiving data on socket : " + e.Message);
                     }
                 });
 
@@ -189,14 +190,14 @@ namespace six_qui_prend.Models
                     //Si le nombre de bits reçus est égal à 1
                     //La connexion a été clôturée par le serveur ou bien un problème
                     //réseau est apparu
-                    Console.WriteLine("");
-                    Console.WriteLine("Connection to server has been closed.");
+                    Trace.WriteLine("");
+                    Trace.WriteLine("Connection to server has been closed.");
                 }
             }
             catch (SocketException e)
             {
-                Console.WriteLine("");
-                Console.WriteLine("Error while ending receiving data on socket : " + e.Message);
+                Trace.WriteLine("");
+                Trace.WriteLine("Error while ending receiving data on socket : " + e.Message);
             }
             finally
             {
@@ -215,8 +216,8 @@ namespace six_qui_prend.Models
             {
                 //La connexion a été clôturée par le serveur ou bien un problème
                 //réseau est apparu
-                Console.WriteLine("");
-                Console.WriteLine("Connection to server has been closed.");
+                Trace.WriteLine("");
+                Trace.WriteLine("Connection to server has been closed.");
                 return false;
             }
 
@@ -240,8 +241,8 @@ namespace six_qui_prend.Models
                     }
                     catch (SocketException e)
                     {
-                        Console.WriteLine("");
-                        Console.WriteLine("Error while starting sending data on socket : " + e.Message);
+                        Trace.WriteLine("");
+                        Trace.WriteLine("Error while starting sending data on socket : " + e.Message);
                     }
                 });
             return true;
@@ -254,8 +255,8 @@ namespace six_qui_prend.Models
             }
             catch (SocketException e)
             {
-                Console.WriteLine("");
-                Console.WriteLine("Error while ending sending data on socket : " + e.Message);
+                Trace.WriteLine("");
+                Trace.WriteLine("Error while ending sending data on socket : " + e.Message);
             }
             finally
             {
@@ -265,7 +266,7 @@ namespace six_qui_prend.Models
 
         public static void WriteError(string description)
         {
-            Console.WriteLine(description + Convert.ToString(System.Runtime.InteropServices.Marshal.GetLastWin32Error()));
+            Trace.WriteLine(description + Convert.ToString(System.Runtime.InteropServices.Marshal.GetLastWin32Error()));
         }
     }
 }

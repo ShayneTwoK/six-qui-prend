@@ -33,59 +33,27 @@ namespace six_qui_prend
 
         private void Button_Click_Create(object sender, RoutedEventArgs e)
         {
-            bool next = false;
             var s = ServerCommunication.OpenConnection("127.0.0.1", 3490);
-            if (s == null)
-                return;
-            Console.WriteLine("Connection to server opened successfully !");
 
-            Player player = new Player
-            {
-                username = username.Text
-            };
+            Player player = new Player();
+            player.username = input_text_username.Text.ToString();
 
-            string body = JsonSerializer.Serialize(player);
+            MessageSent msg = new MessageSent();
+            msg.key = "PSEUDO";
+            msg.body = player;
 
-            //Trace.WriteLine("body : " + body);
+            string request = JsonSerializer.Serialize(msg);
 
-            Message messageSent = new Message
-            {
-                key = "PSEUDO",
-                body = body
-            };
-            string request = JsonSerializer.Serialize(messageSent);
+            Trace.WriteLine("request : " + request);
 
-            //Trace.WriteLine("request : " + request);
-
-            //string buffer;// Envoi du buffer au serveur
-            ServerCommunication.Send(s, "PSEUDO");
+            // Envoi du buffer au serveur
+            ServerCommunication.Send(s, request);
 
             // Lecture de la réponse du serveur
-            //buffer = ServerCommunication.Receive(s);
+            Task<string> buffer = ServerCommunication.BeginReceiveAsync(s);
 
             // Traitement du résultat lu sur la socket
-
-            string? buffer = "";
-            while(!next)
-            {
-                while (string.IsNullOrEmpty(buffer))
-                {
-                    buffer = ServerCommunication.Receive(s);
-                }
-                Trace.WriteLine("message : " + buffer);
-
-                Message? messageReceived = new Message();
-
-                messageReceived = JsonSerializer.Deserialize<Message>(buffer);
-
-                if (messageReceived?.key == "USERID")
-                {
-                    next = true;
-                }
-
-                buffer = "";
-            }
-
+           
             
 
             this.Hide();

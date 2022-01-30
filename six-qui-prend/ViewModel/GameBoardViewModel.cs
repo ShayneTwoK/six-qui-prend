@@ -24,17 +24,6 @@ namespace six_qui_prend.ViewModel
         string linesJson = @"[[{'idCard':'2','nbBeefHead':'1'},{'idCard':'55','nbBeefHead':'7'}],[{'idCard':'59','nbBeefHead':'2'},{'idCard':'84','nbBeefHead':'1'},{'idCard':'78','nbBeefHead':'1'},{'idCard':'100','nbBeefHead':'3'}, {'idCard':'37','nbBeefHead':'1'}, {'idCard':'95','nbBeefHead':'1'}],[{'idCard':'35','nbBeefHead':'1'},{'idCard':'74','nbBeefHead':'2'},{'idCard':'68','nbBeefHead':'1'}],[{'idCard':'80','nbBeefHead':'3'}]]";
         public Card? selectedCardhand { get; set; }
 
-        public GameBoardViewModel()
-        {
-            this.selectedCardhand = selectedCardhand;
-            this.hand = new List<Card>();
-            this.players = new List<Player>();
-            this.lines = new ObservableCollection<List<Card>>();
-
-            Thread t = new Thread(new ThreadStart(waitDataFromSocket));
-            t.Start();
-        }
-
         public List<Card> Hand
         {
             get { return hand; }
@@ -63,6 +52,17 @@ namespace six_qui_prend.ViewModel
                 lines = value;
                 OnPropertyChanged(nameof(Lines));
             }
+        }
+
+        public GameBoardViewModel()
+        {
+            this.selectedCardhand = selectedCardhand;
+            this.hand = new List<Card>();
+            this.players = new List<Player>();
+            this.lines = new ObservableCollection<List<Card>>();
+
+            Thread t = new Thread(new ThreadStart(waitDataFromSocket));
+            t.Start();
         }
 
         public void waitDataFromSocket()

@@ -106,28 +106,9 @@ namespace six_qui_prend
                 // ENVOI JSON AU SERVEUR
                 ServerCommunication.Send(_socket, request);
 
-                //ATTENTE DE LA REPONSE DU SERVEUR
-                /*while (!next)
-                {
-                    while (string.IsNullOrEmpty(buffer))
-                    {
-                        buffer = ServerCommunication.Receive(_socket);
-                    }
-                    Trace.WriteLine("message : " + buffer);
+                // ATTENTE DE LA REPONSE DU SERVEUR
 
-                    messageReceive = JsonSerializer.Deserialize<Message>(buffer);
-
-                    if (messageReceive?.key == "USERID")
-                    {
-                        next = true;
-                    }
-
-                    buffer = "";
-                }
-                Trace.WriteLine("message : " + buffer);
-
-                Trace.WriteLine(JsonSerializer.Serialize(selectedCard));
-                buffer = "";*/
+                
             }
            
         }
