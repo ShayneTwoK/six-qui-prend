@@ -25,6 +25,14 @@ le jeu continue jusqu'a ce que les joueurs n'ont plus de cartes.
 
 ### Documentation technique
 
-Projet lancer avec le système d'exploitation Windows avec Visual Studio 2022.
+Projet lancer avec le système d'exploitation Windows avec Visual Studio 2022 avec la version net5.0windows.
+
 Client en C# WPF et Serveur en C++.
-un fichier exécutable est disponible pour le serveur et le client à la racine du six-qui-prend
+
+Pour commencer à jouer récupérer les projet ``` git clone https://github.com/ShayneTwoK/six-qui-prend.git ```
+
+#### Pour lancer le serveur :
+Aller dans le Lancer ```six-qui-prend > Server > x64 > Debug et lancer Server.exe```
+
+#### Pour lancer le client :
+Aller dans le Lancer ```six-qui-prend > bin > Debug > net5.0-windows et lancer six-qui-prend.exe```
