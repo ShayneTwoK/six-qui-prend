@@ -25,5 +25,6 @@ le jeu continue jusqu'a ce que les joueurs n'ont plus de cartes.
 
 ### Documentation technique
 
-Projet lancer avec le système d'exploitation Windows avec Visual Studio 2022
+Projet lancer avec le système d'exploitation Windows avec Visual Studio 2022.
+Client en C# WPF et Serveur en C++.
 un fichier exécutable est disponible pour le serveur et le client à la racine du six-qui-prend
