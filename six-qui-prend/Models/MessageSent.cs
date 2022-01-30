@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace six_qui_prend.Models
 {
+
     public class MessageSent
     {
         public string key { get; set; }
-        public string body { get; set; }
-        public string username { get; set; }
+        public Object body { get; set; }
     }
 }
