@@ -94,7 +94,7 @@ namespace six_qui_prend.Models
                     byte[] msg = new byte[s.Available];
                     //Réception des données
                     s.Receive(msg, 0, s.Available, SocketFlags.None);
-                    var msgStr = System.Text.Encoding.UTF8.GetString(msg).Trim();
+                    var msgStr = System.Text.Encoding.ASCII.GetString(msg).Trim();
 
                     //On concatène les données reçues(max 4ko) dans
                     //une variable de la classe

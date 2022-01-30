@@ -20,6 +20,7 @@ namespace six_qui_prend
 
         private Socket _socket;
         private Card? _selectedCard;
+        private string selectedColumn;
         private string? buffer;
         private string? request;
         private bool _host;
@@ -88,29 +89,25 @@ namespace six_qui_prend
 
         private void btn_confirm_card_Click(object sender, RoutedEventArgs e)
         {
-            
-            // A FAIRE : Check si le joueur à choisit une colonne ou placer sa carte
-
-            // Check si le btn confirmer et activé (le joueur à choisit une carte)
-            if(btn_confirm_card.IsEnabled == true)
-            {
-                Card? selectedCard = (Card?)list_card_hand.SelectedItems[0];
-                messageSent = new Message
+                // Check si le btn confirmer et activé (le joueur à choisit une carte)
+                if (btn_confirm_card.IsEnabled == true)
                 {
-                    key = "CHOOSECARD",
-                    body = JsonSerializer.Serialize(selectedCard)
-                };
+                    Card? selectedCard = (Card?)list_card_hand.SelectedItems[0];
 
-                request = JsonSerializer.Serialize(messageSent);
+                    messageSent = new Message
+                    {
+                        key = "CHOOSECARD",
+                        body = JsonSerializer.Serialize(selectedCard)
+                    };
 
-                // ENVOI JSON AU SERVEUR
-                ServerCommunication.Send(_socket, request);
+                    request = JsonSerializer.Serialize(messageSent);
 
-                // ATTENTE DE LA REPONSE DU SERVEUR
+                    // ENVOI JSON AU SERVEUR
+                    ServerCommunication.Send(_socket, request);
 
-                
-            }
-           
+                    // ATTENTE DE LA REPONSE DU SERVEUR
+
+                }
         }
 
         private void btn_confirm_party_Click(object sender, RoutedEventArgs e)
@@ -124,5 +121,11 @@ namespace six_qui_prend
 
         }
 
+        private void list_lines_card_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            string selectedColumn = (list_lines_card.SelectedIndex + 1).ToString();
+
+            Trace.WriteLine("Colonne selectionné" + selectedColumn);
+        }
     }
 }

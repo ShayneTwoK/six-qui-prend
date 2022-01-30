@@ -50,13 +50,13 @@
         </ItemsControl>
 
 
-        <ItemsControl x:Name="list_lines_card" Margin="119,69,319,0" d:ItemsSource="{d:SampleData ItemCount=6}" ItemsSource="{Binding Lines}" Height="650" VerticalAlignment="Top" >
+        <ListView x:Name="list_lines_card" Margin="119,69,319,0" d:ItemsSource="{d:SampleData ItemCount=6}" ItemsSource="{Binding Lines}" VerticalAlignment="Top" SelectionChanged="list_lines_card_SelectionChanged">
 
-            <ItemsControl.ItemsPanel>
+            <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+            </ListView.ItemsPanel>
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
@@ -77,7 +77,7 @@
 
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        </ListView>
 
         <ListView x:Name="list_card_hand" Margin="119,0,180,0" d:ItemsSource="{d:SampleData ItemCount=6}" ItemsSource="{Binding Hand}" SelectionChanged="list_card_hand_SelectionChanged" Height="230" VerticalAlignment="Bottom">
             <ListView.ItemsPanel>
@@ -105,7 +105,6 @@
                 </Style>
             </Button.Style>
         </Button>
-
 
     </Grid>
 </Window>
