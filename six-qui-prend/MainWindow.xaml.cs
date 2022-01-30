@@ -39,8 +39,11 @@ namespace six_qui_prend
                 return;
             Console.WriteLine("Connection to server opened successfully !");
 
+
+            object test =  JsonConvert.DeserializeObject<dynamic>("{ 'key':'PSEUDO', 'body':{ 'username':'pseudo'} }");
+            string test2 = JsonConvert.SerializeObject(test);
             //string buffer;// Envoi du buffer au serveur
-            ServerCommunication.Send(s, "{'key':'CREATE', 'body':'', 'username':'pseudo'}");
+            ServerCommunication.Send(s, test2);
 
             // Lecture de la réponse du serveur
             //buffer = ServerCommunication.Receive(s);

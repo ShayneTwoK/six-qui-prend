@@ -19,6 +19,10 @@ public:
         return playersQueue.size();
     }
 
+    
+    std::pair<Player*, CardModel*> getCurrentPlayerTurn() {
+        return playersQueue.back();
+    }
 
     //// Operator -- overload to remove a card from the top of the deck and return
     //// it

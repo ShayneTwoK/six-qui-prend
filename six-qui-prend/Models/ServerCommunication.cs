@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -94,9 +95,12 @@ namespace six_qui_prend.Models
                     //Réception des données
                     s.Receive(msg, 0, s.Available, SocketFlags.None);
                     var msgStr = System.Text.Encoding.UTF8.GetString(msg).Trim();
+
                     //On concatène les données reçues(max 4ko) dans
                     //une variable de la classe
                     messageReceived += msgStr;
+
+                    Trace.WriteLine(messageReceived);
                 }
                 catch (SocketException e)
                 {

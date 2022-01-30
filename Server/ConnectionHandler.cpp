@@ -1,6 +1,6 @@
 #include "ConnectionHandler.h"
-#include <Poco/Util/Application.h>
-#include <Poco/NObserver.h>
+#include "Poco/Util/Application.h"
+#include "Poco/NObserver.h"
 #include <sstream>
 #include <iostream>
 #include "GameEventHandler.h"
@@ -73,9 +73,9 @@ void ConnectionHandler::readBytes(int size)
 	json j = json::parse(message);
 
 	std::string key = j["key"];
-	std::string body = j["body"];
+	json body = j["body"];
 
-	RequestBody request(key, body, _socket.impl()->sockfd());
+	RequestBody request(key, body.dump(), _socket.impl()->sockfd());
 	GameEventHandler::get_instance()->handleEvent(&request);
 }
 
