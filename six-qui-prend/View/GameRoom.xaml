@@ -94,7 +94,7 @@
         </ListView>
 
         <Button x:Name="btn_confirm_card" Content="CONFIRMER" Margin="0,0,32,68" HorizontalAlignment="Right" Width="115" IsEnabled="False" Click="btn_confirm_card_Click" Height="32" VerticalAlignment="Bottom"/>
-        <Button x:Name="btn_confirm_party" Content="COMMENCER" Margin="0,0,32,151" VerticalAlignment="Bottom" IsEnabled="False" Click="btn_confirm_party_Click" FontSize="12" Background="#FF3AB73D" BorderBrush="#FF91B73A"  HorizontalAlignment="Right" Width="113">
+        <Button x:Name="btn_confirm_party" Content="COMMENCER" Margin="0,0,32,151" VerticalAlignment="Bottom" IsEnabled="True" Click="btn_confirm_party_Click" FontSize="12" Background="#FF3AB73D" BorderBrush="#FF91B73A"  HorizontalAlignment="Right" Width="113">
             <Button.Style>
                 <Style TargetType="Button">
                     <Style.Triggers>
