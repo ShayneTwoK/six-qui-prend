@@ -6,6 +6,7 @@ Nous avons implémenter :
 
 - Renseignez un pseudo
 - Créé ou Rejoindre une salle
+- Confirmer le lancement de la partie si on est l'hôte
 - Distribution de 10 cartes à chaque joueur
 - Affichage de la main du joueur
 - Affichage de 4 rangées de cartes
